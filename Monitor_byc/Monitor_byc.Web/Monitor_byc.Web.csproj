@@ -1579,6 +1579,9 @@
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_monitorView.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_template.js" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf\MonitorView.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\MonitorView.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\MonitorView.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_clinker01\MonitorView.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1588,6 +1591,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf\MonitorView.aspx.designer.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\MonitorView.aspx.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\MonitorView.aspx.designer.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\MonitorView.aspx.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\MonitorView.aspx.designer.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_clinker01\MonitorView.aspx.cs">
+      <DependentUpon>MonitorView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_clinker01\MonitorView.aspx.designer.cs">
       <DependentUpon>MonitorView.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -1610,9 +1634,6 @@
     <Folder Include="UI_Monitor\images\common\" />
     <Folder Include="UI_Monitor\images\page\" />
     <Folder Include="UI_Monitor\js\page\" />
-    <Folder Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\" />
-    <Folder Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\" />
-    <Folder Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_clinker01\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monitor_byc.Infrastructure\Monitor_byc.Infrastructure.csproj">

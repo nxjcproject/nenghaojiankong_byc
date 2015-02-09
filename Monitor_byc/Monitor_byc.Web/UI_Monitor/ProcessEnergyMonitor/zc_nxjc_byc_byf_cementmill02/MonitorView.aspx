@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MonitorView.aspx.cs" Inherits="Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf.MonitorView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MonitorView.aspx.cs" Inherits="Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cementmill02.MonitorView" %>
 
 <!DOCTYPE html>
 
@@ -52,7 +52,7 @@
     <script src="../../js/common/trendlineAnalysis_monitorView.js"></script>
     <script type="text/javascript">
         var pageData = {
-            organizationId: "zc_nxjc_byc_byf",
+            organizationId: "zc_nxjc_byc_byf_cementmill02",
             viewName: "saa"
         };
     </script>
