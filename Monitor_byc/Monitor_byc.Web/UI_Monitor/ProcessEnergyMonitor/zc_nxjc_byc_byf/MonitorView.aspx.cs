@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Monitor_byc.Service.ProcessEnergyMonitor;
 
 namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
 {
@@ -24,10 +23,10 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
         public static SceneMonitor GetRealTimeData(string organizationId, string sceneName)
         {
             IList<DataItem> dataItems = new List<DataItem>();
-            string factoryLevel = OrganizationHelper.GetFactoryLevel(organizationId);
+            string factoryLevel = organizationId;
 
-            string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
-            string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(factoryLevel);
+            //string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
+            string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(organizationId);
 
             //#region 获得表中实时数据
             //ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
