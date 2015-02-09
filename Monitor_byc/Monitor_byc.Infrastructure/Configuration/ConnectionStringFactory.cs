@@ -24,18 +24,17 @@ namespace Monitor_byc.Infrastructure.Configuration
 
         public static string GetDCSConnectionString(string organizationId)
         {
-            if (organizationId.Split('_').Count() != 5)
-                throw new Exception("组织机构Id格式不正确！");
-            else
-                return ConfigurationManager.ConnectionStrings[organizationId].ToString();
+            //if (organizationId.Split('_').Count() != 5)
+            //    throw new Exception("组织机构Id格式不正确！");
+            //else
+            //    return ConfigurationManager.ConnectionStrings[organizationId].ToString();
+
+            return ConfigurationManager.ConnectionStrings["ConnNXJC"].ToString().Replace("NXJC", GetDCSDatabaseName(organizationId));
         }
 
         public static string GetAmmeterConnectionString(string organizationId)
         {
-            if (organizationId.Split('_').Count() != 4)
-                throw new Exception("组织机构Id格式不正确！");
-            else
-                return ConfigurationManager.ConnectionStrings[organizationId].ToString();
+            return ConfigurationManager.ConnectionStrings["ConnNXJC"].ToString().Replace("NXJC", GetAmmeterDatabaseName(organizationId));
         }
         
 
@@ -73,6 +72,40 @@ namespace Monitor_byc.Infrastructure.Configuration
             string ammeterDatabaseName = dt.Rows[0]["MeterDatabase"].ToString().Trim();
             ammeterDatabases.Add(organizationId, ammeterDatabaseName);
             return ammeterDatabaseName;
+        }
+
+        private static IDictionary<string, string> dcsDatabases = new Dictionary<string, string>();
+
+        public static string GetDCSDatabaseName(string organizationId)
+        {
+            if (dcsDatabases.ContainsKey(organizationId))
+            {
+                return dcsDatabases[organizationId];
+            }
+
+            string connectionString = NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+
+            string queryString = @"SELECT [system_Database].[DCSProcessDatabase]
+                                     FROM [system_Organization] INNER JOIN
+                                          [system_Database] ON [system_Organization].[DatabaseID] = [system_Database].[DatabaseID]
+                                    WHERE [system_Organization].[OrganizationID] = @organizationId
+                                ";
+
+
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("organizationId", organizationId)
+            };
+
+            DataTable dt = dataFactory.Query(queryString, parameters);
+            if (dt.Rows.Count == 0)
+            {
+                throw new ArgumentException("无该组织机构ID对应的数据");
+            }
+
+            string dcsDatabaseName = dt.Rows[0]["DCSProcessDatabase"].ToString().Trim();
+            dcsDatabases.Add(organizationId, dcsDatabaseName);
+            return dcsDatabaseName;
         }
     }
 }
