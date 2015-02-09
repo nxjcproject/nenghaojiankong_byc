@@ -1584,7 +1584,9 @@
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_template.js" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf\MonitorView.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\MonitorView.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill01\template.html" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\MonitorView.aspx" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_cementmill02\template.html" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\zc_nxjc_byc_byf_clinker01\MonitorView.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

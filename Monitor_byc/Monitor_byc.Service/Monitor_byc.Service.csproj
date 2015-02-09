@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="FormulaEnergy\FormulaEnergyService.cs" />
     <Compile Include="FormulaEnergy\FormulaPowerService.cs" />
+    <Compile Include="ProcessEnergyMonitor\DataBaseHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\DataItem.cs" />
     <Compile Include="ProcessEnergyMonitor\DataSetInformation.cs" />
+    <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />
     <Compile Include="ProcessEnergyMonitor\SceneMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
