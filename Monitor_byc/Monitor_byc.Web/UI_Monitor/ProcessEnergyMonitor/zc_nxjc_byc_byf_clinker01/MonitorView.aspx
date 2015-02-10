@@ -53,7 +53,7 @@
     <script type="text/javascript">
         var pageData = {
             organizationId: "zc_nxjc_byc_byf_clinker01",
-            viewName: "saa"
+            viewName: "1#熟料线"
         };
     </script>
 

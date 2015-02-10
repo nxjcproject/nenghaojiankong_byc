@@ -53,7 +53,7 @@
     <script type="text/javascript">
         var pageData = {
             organizationId: "zc_nxjc_byc_byf_cementmill01",
-            viewName: "saa"
+            viewName: "1#水泥磨"
         };
     </script>
 
