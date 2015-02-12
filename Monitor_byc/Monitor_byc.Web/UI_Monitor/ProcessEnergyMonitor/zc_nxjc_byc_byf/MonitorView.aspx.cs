@@ -3,6 +3,7 @@ using Monitor_byc.Service.FormulaEnergy;
 using Monitor_byc.Service.ProcessEnergyMonitor;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -28,14 +29,14 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
             //string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
             string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(organizationId);
 
-            //#region 获得表中实时数据
-            //ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
-            //DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
-            //DataRow[] rows = sourceDt.Select(String.Format("OrganizationID='{0}'", organizationId));
+            #region 获得表中实时数据
+            ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
+            DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
+            DataRow[] rows = sourceDt.Select(String.Format("OrganizationID='{0}'", organizationId));
 
-            //string[] fields = { "本日合计", "本月累计", "本年累计" };
-            //dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
-            //#endregion
+            string[] fields = { "本日合计", "本月累计", "本年累计" };
+            dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
+            #endregion
 
             //#region 获得dcs实时数据
             //ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);

@@ -33,6 +33,9 @@
     <Reference Include="SqlServerDataAdapter">
       <HintPath>..\..\Lib\SqlServerDataAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="StatisticalReport.Infrastructure">
+      <HintPath>..\..\Lib\StatisticalReport.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,10 +50,18 @@
     <Compile Include="ProcessEnergyMonitor\DataBaseHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\DataItem.cs" />
     <Compile Include="ProcessEnergyMonitor\DataSetInformation.cs" />
+    <Compile Include="ProcessEnergyMonitor\EnergyConsumptionMonitor.cs" />
     <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />
+    <Compile Include="ProcessEnergyMonitor\ProcessPowerMonitor.cs" />
     <Compile Include="ProcessEnergyMonitor\SceneMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Monitor_byc.Infrastructure\Monitor_byc.Infrastructure.csproj">
+      <Project>{9c348492-4c4b-4bc2-af9e-51c695c6339a}</Project>
+      <Name>Monitor_byc.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
