@@ -32,10 +32,15 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
             #region 获得表中实时数据
             ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
             DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
-            DataRow[] rows = sourceDt.Select(String.Format("OrganizationID='{0}'", organizationId));
+            //DataRow[] rows = sourceDt.Select(String.Format("OrganizationID='{0}'", organizationId));
+            IList<DataRow> rows = new List<DataRow>();
+            foreach(DataRow dr in sourceDt.Rows){
+                rows.Add(dr);
+            }
 
             string[] fields = { "本日合计", "本月累计", "本年累计" };
-            dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
+            //dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
+            dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows.ToArray(), fields).ToList();
             #endregion
 
             //#region 获得dcs实时数据

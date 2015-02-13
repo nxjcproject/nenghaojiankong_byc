@@ -59,6 +59,10 @@ function displayScene(scene) {
 function displayDataItem(dataSets) {
     $.each(dataSets, function (i, item) {
         var value = Number(item.Value)
-        $(document.getElementById(item.ID)).html(value.toFixed(0));
+        var element = $(document.getElementById(item.ID));
+        //if (element.attr("tagName") == "span")
+            element.html(value.toFixed(0));
+        //else
+            element.val(value.toFixed(0));
     });
 }
