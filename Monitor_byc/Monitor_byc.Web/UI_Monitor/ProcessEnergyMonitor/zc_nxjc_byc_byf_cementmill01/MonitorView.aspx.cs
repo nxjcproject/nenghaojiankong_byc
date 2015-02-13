@@ -73,6 +73,14 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             }
             #endregion
 
+            #region 获取公式电耗月平均值
+            IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage();
+            foreach (var item in formulaEnergyConsumptionMonthlyAverageItems)
+            {
+                dataItems.Add(item);
+            }
+            #endregion
+
             #region 获得实时公式功率
             FormulaPowerService formulaPowerServer = new FormulaPowerService(connString);
             IEnumerable<DataItem> formulaPowerItems = formulaPowerServer.GetFormulaPower(factoryLevel);

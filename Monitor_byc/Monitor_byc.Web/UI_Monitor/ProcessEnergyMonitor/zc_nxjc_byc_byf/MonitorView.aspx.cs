@@ -29,6 +29,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
             //string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
             string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(organizationId);
 
+            /*
             #region 获得表中实时数据
             ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
             DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
@@ -42,6 +43,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
             //dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
             dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows.ToArray(), fields).ToList();
             #endregion
+             */
 
             //#region 获得dcs实时数据
             //ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
@@ -74,6 +76,14 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf
             FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(ammeterConn);
             IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(factoryLevel);
             foreach (var item in formulaEnergyItems)
+            {
+                dataItems.Add(item);
+            }
+            #endregion
+
+            #region 获取公式电耗月平均值
+            IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage();
+            foreach (var item in formulaEnergyConsumptionMonthlyAverageItems)
             {
                 dataItems.Add(item);
             }

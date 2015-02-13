@@ -78,5 +78,26 @@ namespace Monitor_byc.Service.FormulaEnergy
             IEnumerable<DataItem> result = ConvertToDataItems(sourceTable);  //将表中电耗值转换为键值对
             return result;
         }
+
+        public IEnumerable<DataItem> GetFormulaPowerConsumptionMonthlyAverage()
+        {
+            string queryString = @"  SELECT [OrganizationID], [LevelCode], (SUM([FormulaValue]) / SUM([DenominatorValue])) AS [PowerConsumptionAverage]
+                                       FROM [HistoyFormulaValue]
+                                      WHERE [vDate] >= CONVERT(char(7), GETDATE(),20) + '-01' AND 
+                                            [vDate] <= GETDATE()
+                                   GROUP BY [OrganizationID], [LevelCode]";
+
+            DataTable dt = _dataFactory.Query(queryString);
+
+            IList<DataItem> result = new List<DataItem>();
+            foreach (DataRow item in dt.Rows)
+            {
+                DataItem value = new DataItem();
+                value.ID = item["OrganizationID"].ToString().Trim() + item["LevelCode"].ToString().Trim() + "PowerConsumptionMonthlyAverage";
+                value.Value = item["PowerConsumptionAverage"].ToString().Trim();
+                result.Add(value);
+            }
+            return result;
+        }
     }
 }
