@@ -84,7 +84,7 @@ namespace Monitor_byc.Service.FormulaEnergy
             string queryString = @"  SELECT [OrganizationID], [LevelCode], (SUM([FormulaValue]) / SUM([DenominatorValue])) AS [PowerConsumptionAverage]
                                        FROM [HistoyFormulaValue]
                                       WHERE [vDate] >= CONVERT(char(7), GETDATE(),20) + '-01' AND 
-                                            [vDate] <= GETDATE()
+                                            [vDate] <= GETDATE() AND [DenominatorValue] IS NOT NULL AND [DenominatorValue] <> 0
                                    GROUP BY [OrganizationID], [LevelCode]";
 
             DataTable dt = _dataFactory.Query(queryString);
