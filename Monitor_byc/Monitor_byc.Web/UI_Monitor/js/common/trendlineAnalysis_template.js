@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 function getFullscreenHtml() {
     var html = '<div style="position: absolute; z-index: 100; left: 10px; top: 5px;">\
-                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:\'ext-icon-arrow_out\',plain:true" onclick="window.open(document.location + \'&fullscreen=1\', \'\', \'fullscreen=yes\');">全屏</a>\
+                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:\'ext-icon-arrow_out\',plain:true" onclick="window.open(document.location + \'?fullscreen=1\', \'\', \'fullscreen=yes\');">全屏</a>\
                 </div>';
     return html;
 }
