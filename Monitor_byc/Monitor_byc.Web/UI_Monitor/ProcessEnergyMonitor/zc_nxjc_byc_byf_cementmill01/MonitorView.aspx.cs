@@ -1,8 +1,10 @@
 ﻿using Monitor_byc.Infrastructure.Configuration;
+using Monitor_byc.Service.Alarm;
 using Monitor_byc.Service.FormulaEnergy;
 using Monitor_byc.Service.ProcessEnergyMonitor;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -18,7 +20,13 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
+        [WebMethod]
+        public static string GetAlarmInfor()
+        {
+            DataTable alarmInforTable = AlarmService.GetRealtimeAlarmByOrganizationId();
+            string Json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(alarmInforTable);
+            return Json;
+        }
         [WebMethod]
         public static SceneMonitor GetRealTimeData(string organizationId, string sceneName)
         {

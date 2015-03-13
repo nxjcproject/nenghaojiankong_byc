@@ -10,8 +10,10 @@ function InitializePage() {
     loadTemplate("template.html");
     setTimeout(getData, 1000);
 }
+
 function getData() {
     getLatestData();
+    
 }
 function loadTemplate(url) {
     // 将模板加载至 templatePlaceHolder
@@ -35,6 +37,7 @@ function getLatestData() {
         }
     });
 }
+
 function serviceSuccessful(resultObject) {
     displayScene(resultObject.d);
     setupTimerToPollLatestData();
@@ -66,3 +69,4 @@ function displayDataItem(dataSets) {
             element.val(value.toFixed(0));
     });
 }
+

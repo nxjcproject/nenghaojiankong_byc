@@ -50,6 +50,7 @@
 
     <script src="../../js/common/monitorjs.js"></script>
     <script src="../../js/common/trendlineAnalysis_monitorView.js"></script>
+    <script src="../../js/common/alarm.js"></script>
     <script type="text/javascript">
         var pageData = {
             organizationId: "zc_nxjc_byc_byf_clinker01",

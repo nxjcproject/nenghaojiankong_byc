@@ -41,6 +41,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EasyUIJsonParser">
+      <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
@@ -1576,10 +1579,13 @@
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
     <Content Include="UI_Monitor\css\common\mymonitor.css" />
     <Content Include="UI_Monitor\css\common\trendlineAnalysis.css" />
+    <Content Include="UI_Monitor\images\common\greenL.png" />
+    <Content Include="UI_Monitor\images\common\redL.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf.jpg" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill01.jpg" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill02.jpg" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_clinker01.jpg" />
+    <Content Include="UI_Monitor\js\common\alarm.js" />
     <Content Include="UI_Monitor\js\common\blink.js" />
     <Content Include="UI_Monitor\js\common\monitorjs.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_monitorView.js" />
@@ -1642,7 +1648,6 @@
     <Folder Include="Images\Page\" />
     <Folder Include="js\page\" />
     <Folder Include="UI_Monitor\css\page\" />
-    <Folder Include="UI_Monitor\images\common\" />
     <Folder Include="UI_Monitor\js\page\" />
   </ItemGroup>
   <ItemGroup>

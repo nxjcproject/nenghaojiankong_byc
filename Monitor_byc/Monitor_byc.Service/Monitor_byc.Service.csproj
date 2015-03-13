@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarm\AlarmService.cs" />
     <Compile Include="FormulaEnergy\FormulaEnergyService.cs" />
     <Compile Include="FormulaEnergy\FormulaPowerService.cs" />
     <Compile Include="ProcessEnergyMonitor\DataBaseHelper.cs" />
