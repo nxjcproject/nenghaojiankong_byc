@@ -17,7 +17,7 @@ namespace Monitor_byc.Service.Alarm
         /// </summary>
         /// <param name="organizationId">组织机构ID</param>
         /// <returns></returns>
-        public static DataTable GetRealtimeAlarmByOrganizationId()
+        public static DataTable GetRealtimeAlarmByOrganizationId(string organizationId)
         {
             string connectionstring=ConnectionStringFactory.NXJCConnectionString;
             SqlServerDataFactory _dataFactory = new SqlServerDataFactory(connectionstring);
@@ -26,10 +26,15 @@ namespace Monitor_byc.Service.Alarm
                                 shift_EnergyConsumptionAlarmLog AS SE
                                 WHERE ST.KeyId=SE.EnergyConsumptionAlarmLogID AND
                                 ST.AlarmType='EnergyConsumption' AND
-                                ST.Eanbled='true'
+                                ST.Eanbled='true' AND
+								ST.OrganizationID IN (
+								   SELECT SO.OrganizationID FROM system_Organization AS SO
+								   WHERE SO.LevelCode LIKE (
+								         SELECT LevelCode FROM system_Organization WHERE OrganizationID=@organizationId)+'%'
+										 )
                             ";
-            //SqlParameter parameter = new SqlParameter("OrganizationID", organizationId);
-            DataTable resultTable= _dataFactory.Query(SqlStr);
+            SqlParameter parameter = new SqlParameter("OrganizationID", organizationId);
+            DataTable resultTable= _dataFactory.Query(SqlStr,parameter);
             return resultTable;
         }
     }

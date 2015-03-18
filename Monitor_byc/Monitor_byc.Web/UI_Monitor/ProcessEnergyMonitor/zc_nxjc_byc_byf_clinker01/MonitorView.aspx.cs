@@ -23,7 +23,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
         [WebMethod]
         public static string GetAlarmInfor()
         {
-            DataTable alarmInforTable = AlarmService.GetRealtimeAlarmByOrganizationId();
+            DataTable alarmInforTable = AlarmService.GetRealtimeAlarmByOrganizationId("zc_nxjc_byc_byf");
             string Json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(alarmInforTable);
             return Json;
         }
