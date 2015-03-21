@@ -82,7 +82,7 @@ namespace Monitor_byc.Service.FormulaEnergy
         public IEnumerable<DataItem> GetFormulaPowerConsumptionMonthlyAverage()
         {
             string queryString = @"  SELECT [OrganizationID], [LevelCode], (SUM([FormulaValue]) / SUM([DenominatorValue])) AS [PowerConsumptionAverage]
-                                       FROM [HistoyFormulaValue]
+                                       FROM [HistoryFormulaValue]
                                       WHERE [vDate] >= CONVERT(char(7), GETDATE(),20) + '-01' AND 
                                             [vDate] <= GETDATE() AND [DenominatorValue] IS NOT NULL AND [DenominatorValue] <> 0
                                    GROUP BY [OrganizationID], [LevelCode]";
