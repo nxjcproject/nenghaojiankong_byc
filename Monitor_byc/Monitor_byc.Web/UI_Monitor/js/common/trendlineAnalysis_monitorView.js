@@ -18,6 +18,14 @@ $(document).ready(function () {
     // 解析趋势容器
 
     $.parser.parse('#tagListContainer');
+
+    //设置默认为十天的时间
+    var curDate = new Date();
+    var beforeDate = new Date();
+    beforeDate.setDate(beforeDate.getDate() -10);
+    var dateStr = beforeDate.getFullYear().toString() + '-' + (beforeDate.getMonth()+1).toString() + '-' + beforeDate.getDate();
+    $('#StartTime').datebox('setValue', dateStr);
+    $('#EndTime').datebox('setValue', curDate.toDateString());
 });
 
 // 获取标签列表窗口HTML
@@ -26,7 +34,7 @@ function getTagListWindowHtml() {
     var html = '<div data-options="region:\'north\'" style="height:70px;padding:5px;background-color:rgb(250, 250, 250);">\
                     <div>\
                     时间段：\
-                    <input id="StartTime" class="easyui-datebox" data-options="validType:\'md[\\\'2012-10\\\']\', required:true" style="width: 100px" />\
+                    <input id="StartTime" class="easyui-datebox" data-options="validType:\'md[\\\'2012-10-10\\\']\', required:true" style="width: 100px" />\
                     <span id="InnerlLine">-</span>\
                     <input id="EndTime" class="easyui-datebox" data-options="validType:\'md[\\\'2012-10-10\\\']\', required:true" style="width: 100px" />\
                     </div>\
