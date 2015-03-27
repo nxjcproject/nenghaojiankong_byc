@@ -19,7 +19,7 @@ namespace Monitor_byc.Service.Alarm
         /// <returns></returns>
         public static DataTable GetRealtimeAlarmByOrganizationId(string organizationId)
         {
-            string connectionstring=ConnectionStringFactory.NXJCConnectionString;
+            string connectionstring = ConnectionStringFactory.NXJCConnectionString;
             SqlServerDataFactory _dataFactory = new SqlServerDataFactory(connectionstring);
             string SqlStr = @"SELECT ST.OrganizationID,SE.Name 
                                 FROM system_TenDaysRealtimeAlarm AS ST,
@@ -34,7 +34,8 @@ namespace Monitor_byc.Service.Alarm
 										 )
                             ";
             SqlParameter parameter = new SqlParameter("OrganizationID", organizationId);
-            DataTable resultTable= _dataFactory.Query(SqlStr,parameter);
+            DataTable resultTable = _dataFactory.Query(SqlStr, parameter);
+            //DataTable resultTable = new DataTable();
             return resultTable;
         }
     }

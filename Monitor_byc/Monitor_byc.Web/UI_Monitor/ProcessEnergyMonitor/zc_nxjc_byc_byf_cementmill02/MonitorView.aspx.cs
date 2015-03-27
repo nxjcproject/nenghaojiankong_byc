@@ -13,17 +13,31 @@ using System.Web.UI.WebControls;
 
 namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cementmill02
 {
-    public partial class MonitorView : System.Web.UI.Page
+    public partial class MonitorView : WebStyleBaseForEnergy.webStyleBase
     {
         private static readonly string connString = ConnectionStringFactory.NXJCConnectionString;          //DCS连接字符串
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.InitComponts();
+            string pageInfors="";
+#if DEBUG
+            pageInfors = GetPageIdByNodeId("zc_nxjc_byc_byf_cementmill02,2#水泥磨");
+
+#elif !DEBUG
+            string pageId=Request.QueryString["PageId"].ToString().Trim();
+            pageInfors = GetPageIdByNodeId(pageId);
+#endif
+            string[] pageInfoArray = pageInfors.Split(',');
+            string organizationId = pageInfoArray[0];
+            string viewName = pageInfoArray[1];
+            organizationIdContainerId.Value = organizationId;
+            viewNameContainerId.Value = viewName;
         }
         [WebMethod]
-        public static string GetAlarmInfor()
+        public static string GetAlarmInfor(string organizationId)
         {
-            DataTable alarmInforTable = AlarmService.GetRealtimeAlarmByOrganizationId("zc_nxjc_byc_byf");
+            DataTable alarmInforTable = AlarmService.GetRealtimeAlarmByOrganizationId(organizationId);
             string Json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(alarmInforTable);
             return Json;
         }
@@ -46,8 +60,8 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             //#endregion
 
             #region 获得dcs实时数据
-            ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
-            IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName);
+            ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(connString);
+            IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName,ValueType.Current);
             foreach (var item in monitorItems)
             {
                 dataItems.Add(item);
@@ -55,8 +69,8 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             #endregion
 
             #region 获得电表功率数据
-            ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(ammeterConn);
-            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName);
+            ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(connString);
+            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName,ValueType.Power);
             foreach (var item in ammeterItems)
             {
                 dataItems.Add(item);
@@ -73,8 +87,8 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             //#endregion
 
             #region  获得实时公式电耗
-            FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(ammeterConn);
-            IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(factoryLevel);
+            FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(connString);
+            IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(factoryLevel, sceneName);
             foreach (var item in formulaEnergyItems)
             {
                 dataItems.Add(item);
@@ -82,7 +96,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             #endregion
 
             #region 获取公式电耗月平均值
-            IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage();
+            IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage(organizationId, sceneName);
             foreach (var item in formulaEnergyConsumptionMonthlyAverageItems)
             {
                 dataItems.Add(item);
@@ -91,7 +105,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_cement
             #endregion
             #region 获得实时公式功率
             FormulaPowerService formulaPowerServer = new FormulaPowerService(connString);
-            IEnumerable<DataItem> formulaPowerItems = formulaPowerServer.GetFormulaPower(factoryLevel);
+            IEnumerable<DataItem> formulaPowerItems = formulaPowerServer.GetFormulaPower(factoryLevel, sceneName);
             foreach (var item in formulaPowerItems)
             {
                 dataItems.Add(item);

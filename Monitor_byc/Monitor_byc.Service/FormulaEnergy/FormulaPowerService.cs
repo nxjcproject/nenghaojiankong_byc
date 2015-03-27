@@ -22,21 +22,31 @@ namespace Monitor_byc.Service.FormulaEnergy
         private DataTable GetFormulaPowerValues(string organizationId)
         {
             DataTable result;
-            string queryString = @"select * from formula_power where 
+            string queryString = @"select F.* from formula_power AS F,system_Organization AS S
+                                    where 
                                     vDate=(select top 1 vDate from formula_power order by vDate desc) 
-                                    and OrganizationID=@organizationId";
+                                    and F.OrganizationID=@organizationId
+                                    and F.OrganizationID=S.OrganizationID
+                                  ";
             SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
             result = _dataFactory.Query(queryString, parameters);
             return result;
         }
 
-        private IEnumerable<DataItem> ConvertToDataItems(DataTable sourceTable)
+        private IEnumerable<DataItem> ConvertToDataItems(DataTable sourceTable, string sceneName)
         {
             IList<DataItem> result = new List<DataItem>();
             foreach (DataRow item in sourceTable.Rows)
             {
                 DataItem values = new DataItem();
-                values.ID = item["OrganizationID"].ToString().Trim() + item["LevelCode"].ToString().Trim() + "PowerValue";
+                if ("saa" == sceneName)
+                {
+                    values.ID = item["OrganizationID"].ToString().Trim() + item["LevelCode"].ToString().Trim() + "PowerValue";
+                }
+                else
+                {
+                    values.ID = item["LevelCode"].ToString().Trim() + "PowerValue"; 
+                }
                 values.Value = item["PowerValue"].ToString().Trim();
                 result.Add(values);
             }
@@ -49,10 +59,10 @@ namespace Monitor_byc.Service.FormulaEnergy
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public IEnumerable<DataItem> GetFormulaPower(string organizationId)
+        public IEnumerable<DataItem> GetFormulaPower(string organizationId,string sceneName)
         {
             DataTable sourceTable = GetFormulaPowerValues(organizationId);    // 获得formula_power表值
-            IEnumerable<DataItem> result = ConvertToDataItems(sourceTable);   // 将表中功率值转换为键值对
+            IEnumerable<DataItem> result = ConvertToDataItems(sourceTable,sceneName);   // 将表中功率值转换为键值对
             return result;
         }
     }

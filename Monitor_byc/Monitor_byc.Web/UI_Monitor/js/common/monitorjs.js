@@ -1,5 +1,19 @@
-﻿$(function () {
+﻿var pageViewName = '';
+var pageOrganizationId = '';
+$(function () {
+    pageViewName = $('#viewNameContainerId').val();
+    pageOrganizationId = $('#organizationIdContainerId').val();
+    
     InitializePage();
+    if (pageViewName != 'saa') {
+        $(".selectable").attr('data-organizationid', pageOrganizationId);
+    };
+    setTimeout(function () {
+        if (pageViewName != 'saa') {
+            $("#titleId").text(pageViewName + "生产能耗监控总貌图");
+            var aa = $("#titleId");
+        }
+    }, 1000);
 });
 var publicData = {
     realTimer: {},
@@ -22,8 +36,8 @@ function loadTemplate(url) {
 function getLatestData() {
     //var m_MsgData;
     var dataToServer = {
-        organizationId: pageData.organizationId,
-        sceneName: pageData.viewName
+        organizationId: pageOrganizationId,
+        sceneName: pageViewName
     };
     var urlString = "MonitorView.aspx/GetRealTimeData";
     $.ajax({

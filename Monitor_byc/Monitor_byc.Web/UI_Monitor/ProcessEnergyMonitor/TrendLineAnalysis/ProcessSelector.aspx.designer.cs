@@ -7,36 +7,27 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinker01 {
+namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.TrendLineAnalysis {
     
     
-    public partial class MonitorView {
+    public partial class ProcessSelector {
         
         /// <summary>
-        /// organizationIdContainerId 控件。
+        /// Head1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText organizationIdContainerId;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// viewNameContainerId 控件。
+        /// OrganisationTree_ProductionLine 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText viewNameContainerId;
-        
-        /// <summary>
-        /// testId 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText testId;
+        protected global::WebUserContorls.Web.UI_WebUserControls.OrganizationSelector.OrganisationTree OrganisationTree_ProductionLine;
     }
 }

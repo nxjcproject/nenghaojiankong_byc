@@ -1,6 +1,8 @@
 ﻿$(function () {
     //var alermInterval= setInterval("alarmBlink()", 500);
-    var blinkInterval= setInterval("initAlarm()", 4000);
+    pageViewName = $('#viewNameContainerId').val();
+    pageOrganizationId = $('#organizationIdContainerId').val();
+    var blinkInterval= setInterval("initAlarm()", 60000);
     initAlarm();
 });
 
@@ -17,10 +19,11 @@ function initAlarmFlag() {
 
 function getRealtimeAlarmData() {
     var urlString = "MonitorView.aspx/GetAlarmInfor";
+    var organizationId = pageOrganizationId;
     $.ajax({
         type: "POST",
         url: urlString,
-        data: '',
+        data: "{organizationId:'" + organizationId + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data){
@@ -39,11 +42,22 @@ function displayAlarm(data) {
 }
 
 function setAlarmFlag(data) {
-    $.each(data, function (idx, obj) {
-        var id = obj.OrganizationID + obj.Name;
-        var item = document.getElementById(id);
-        $(item).attr("data-alarmFlag", "1");
-    });
+    //分厂页标签要加组织机构ID以区分不同的生产线
+    if ('saa' == pageViewName) {
+        $.each(data, function (idx, obj) {
+            var id = obj.OrganizationID + obj.Name;
+            var item = document.getElementById(id);
+            $(item).attr("data-alarmFlag", "1");
+        });
+    }
+    //生产线页面标签不需要加组织机构ID
+    else {
+        $.each(data, function (idx, obj) {
+            var id = obj.Name;
+            var item = document.getElementById(id);
+            $(item).attr("data-alarmFlag", "1");
+        });
+    }
 }
 
 

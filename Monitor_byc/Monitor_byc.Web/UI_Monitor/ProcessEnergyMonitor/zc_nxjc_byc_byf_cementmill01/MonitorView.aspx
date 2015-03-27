@@ -48,19 +48,20 @@
     <script type="text/javascript" src="/js/common/components/WindowsDialog.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/common/components/GridChart.js" charset="utf-8"></script>
 
+   
     <script src="../../js/common/monitorjs.js"></script>
     <script src="../../js/common/trendlineAnalysis_monitorView.js"></script>
     <script src="../../js/common/alarm.js"></script>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var pageData = {
             organizationId: "zc_nxjc_byc_byf_cementmill01",
             viewName: "1#水泥磨"
         };
-    </script>
+    </script>--%>
 
     <title></title>
 </head>
-<body class="easyui-layout" data-options="border:false" >
+<body class="easyui-layout" data-options="border:false" style="width:100%;height:100%;">
     <div data-options="region:'center'">
         <div id="template" style="height:100%; overflow: auto;"></div>
     </div>
@@ -75,5 +76,7 @@
             </div>
         </div>
     </div>
+    <input type="text" style="display:none" id="organizationIdContainerId" runat="server" />
+    <input type="text" style="display:none" id="viewNameContainerId" runat="server" />
 </body>
 </html>

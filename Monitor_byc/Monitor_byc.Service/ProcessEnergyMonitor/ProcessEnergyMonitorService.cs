@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,18 +25,38 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         /// </summary>
         /// <param name="viewName"></param>
         /// <returns></returns>
-        private IEnumerable<DataSetInformation> GetDataSetInformation(string organizationId, string viewName)
+        private IEnumerable<DataSetInformation> GetDataSetInformation(string organizationId, string viewName, ValueType myType)
         {
+            string type = "";
+            string dataBaseName = "";
+            //判断是DCS量还是电表功率数据(dcs量从DCS数据库中取得，电表功率数据从电表数据库中取得)
+            if (myType == ValueType.Current)
+            {
+                type = "Current";
+                dataBaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetDCSDatabaseName(organizationId);
+            }
+            if (myType == ValueType.Power)
+            {
+                type = "Power";
+                dataBaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetAmmeterDatabaseName(organizationId);
+            }
             IList<DataSetInformation> results = new List<DataSetInformation>();
-            Query query = new Query("EnergyConsumptionContrast");
-            query.AddCriterion("ViewName", "viewName", viewName, CriteriaOperator.Equal);
-            query.AddCriterion("OrganizationID", "organizationId", organizationId, CriteriaOperator.Equal);
-            DataTable table = _dataFactory.Query(query);
+            //string factoryDatabaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetDCSDatabaseName(organizationId);
+            string sqlStr = @"SELECT E.VariableName,E.TableName,E.FieldName
+                                FROM [{0}].[dbo].[EnergyConsumptionContrast] AS E
+                                WHERE E.ViewName=@viewName AND
+                                E.OrganizationID=@organizationId";
+            SqlParameter[] parameters = { new SqlParameter("viewName", viewName), new SqlParameter("organizationId", organizationId) };
+            DataTable table = _dataFactory.Query(string.Format(sqlStr, dataBaseName), parameters);
+            //Query query = new Query("EnergyConsumptionContrast");
+            //query.AddCriterion("ViewName", "viewName", viewName, CriteriaOperator.Equal);
+            //query.AddCriterion("OrganizationID", "organizationId", organizationId, CriteriaOperator.Equal);
+            //DataTable table = _dataFactory.Query(query);
             foreach (DataRow item in table.Rows)
             {
                 results.Add(new DataSetInformation
                 {
-                    ViewId = item["VariableName"].ToString().Trim(),
+                    ViewId = item["VariableName"].ToString().Trim()+type,
                     FieldName = item["FieldName"].ToString().Trim(),
                     TableName = item["TableName"].ToString().Trim()
                 });
@@ -48,13 +69,14 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         /// </summary>
         /// <param name="dataSetInformations"></param>
         /// <returns></returns>
-        private DataTable GetDataItemTable(IEnumerable<DataSetInformation> dataSetInformations)
+        private DataTable GetDataItemTable(IEnumerable<DataSetInformation> dataSetInformations, string dataBaseName)
         {
             //DataItem result = new DataItem();
             ComplexQuery cmpquery = new ComplexQuery();
             foreach (var item in dataSetInformations)
             {
-                cmpquery.AddNeedField(item.TableName, item.FieldName, item.ViewId);
+                string tableName = "[{0}].[dbo].[{1}]";
+                cmpquery.AddNeedField(string.Format(tableName,dataBaseName,item.TableName), item.FieldName, item.ViewId);
             }
             cmpquery.JoinCriterion = new JoinCriterion
             {
@@ -73,14 +95,23 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         /// </summary>
         /// <param name="viewName"></param>
         /// <returns></returns>
-        public IEnumerable<DataItem> GetRealtimeDatas(string organizationId, string viewName)
+        public IEnumerable<DataItem> GetRealtimeDatas(string organizationId, string viewName, ValueType myType)
         {
             IList<DataItem> result = new List<DataItem>();
             //ArrayList idList = GetParametorsId(viewName);
-            IEnumerable<DataSetInformation> dataSetInfor = GetDataSetInformation(organizationId, viewName);
+            IEnumerable<DataSetInformation> dataSetInfor = GetDataSetInformation(organizationId, viewName, myType);
             if (dataSetInfor.Count() != 0)
             {
-                DataTable table = GetDataItemTable(dataSetInfor);
+                string dataBaseName;
+                if (myType == ValueType.Current)
+                {
+                    dataBaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetDCSDatabaseName(organizationId);
+                }
+                else
+                {
+                    dataBaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetAmmeterDatabaseName(organizationId);
+                }
+                DataTable table = GetDataItemTable(dataSetInfor,dataBaseName);
                 string[] idList = GetTableColumnName(table);
                 foreach (var item in idList)
                 {
@@ -166,5 +197,17 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
             }
             return result;
         }
+
+       
     }
 }
+public enum ValueType
+{
+    Power, Current
+};
+
+public enum DataBaseType
+{
+    DCS,
+    Ammeter
+};

@@ -1,4 +1,5 @@
 ﻿body {
+    
 }
 
 input {
@@ -34,7 +35,7 @@ table.mytable {
         /*padding: 4px;*/
         border-style: solid;
         border-color: #666666;
-        background-color: #ffffff;
+        background-color:rgb(215, 230, 234);
         /*text-align: right;*/
     }
     table.mytable td:first-child {
@@ -55,3 +56,4 @@ table.mytable {
     font-weight: bold;
     font-size: 25px;
 }
+

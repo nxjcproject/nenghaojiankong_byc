@@ -60,6 +60,18 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebStyleBaseForEnergy">
+      <HintPath>..\..\Lib\WebStyleBaseForEnergy.dll</HintPath>
+    </Reference>
+    <Reference Include="WebUserContorls.Web">
+      <HintPath>..\..\Lib\WebUserContorls.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="WebUserControls.Infrastructure">
+      <HintPath>..\..\Lib\WebUserControls.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="WebUserControls.Service">
+      <HintPath>..\..\Lib\WebUserControls.Service.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common\charts.css" />
@@ -1582,9 +1594,8 @@
     <Content Include="UI_Monitor\images\common\greenL.png" />
     <Content Include="UI_Monitor\images\common\redL.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf.jpg" />
-    <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill01.jpg" />
-    <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill02.jpg" />
-    <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_clinker01.jpg" />
+    <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill.jpg" />
+    <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_clinker.jpg" />
     <Content Include="UI_Monitor\js\common\alarm.js" />
     <Content Include="UI_Monitor\js\common\blink.js" />
     <Content Include="UI_Monitor\js\common\monitorjs.js" />

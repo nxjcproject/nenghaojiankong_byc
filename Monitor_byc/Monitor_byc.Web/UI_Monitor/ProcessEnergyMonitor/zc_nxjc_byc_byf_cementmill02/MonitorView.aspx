@@ -51,12 +51,12 @@
     <script src="../../js/common/monitorjs.js"></script>
     <script src="../../js/common/trendlineAnalysis_monitorView.js"></script>
     <script src="../../js/common/alarm.js"></script>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var pageData = {
             organizationId: "zc_nxjc_byc_byf_cementmill02",
             viewName: "2#水泥磨"
         };
-    </script>
+    </script>--%>
 
     <title></title>
 </head>
@@ -75,5 +75,7 @@
             </div>
         </div>
     </div>
+    <input type="text" style="display:none" id="organizationIdContainerId" runat="server" />
+    <input type="text" style="display:none" id="viewNameContainerId" runat="server" />
 </body>
 </html>
