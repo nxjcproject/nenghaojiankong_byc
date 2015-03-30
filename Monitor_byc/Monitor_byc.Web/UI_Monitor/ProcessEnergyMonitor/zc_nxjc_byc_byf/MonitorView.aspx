@@ -60,7 +60,7 @@
 
     <title></title>
 </head>
-<body class="easyui-layout" data-options="border:false" >
+<body class="easyui-layout" data-options="border:false" style="width:100%;height:100%;">
     <div data-options="region:'center'">
         <div id="template" style="height:100%; overflow: auto;"></div>
     </div>

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace Monitor.Web.UI_Monitor.ProcessEnergyMonitor.TrendLineAnalysis
+namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.TrendLineAnalysis
 {
     /// <summary>
     /// HorizontalAnalysis 的摘要说明
