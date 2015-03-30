@@ -63,8 +63,8 @@
     <title></title>
 </head>
 <body class="easyui-layout" data-options="border:false" style="width:100%;height:100%;" >
-    <div data-options="region:'center'">
-        <div id="template" style="height:100%; overflow: auto;"></div>
+    <div data-options="region:'center'" style ="background-color:rgb(199,226,211);">
+        <div id="template" style="width:1358px;height:650px; overflow: auto;"></div>
     </div>
     <div data-options="region:'south',title:'趋势分析',split:true,collapsed:true" style="height:334px;">
         <div class="easyui-layout" data-options="fit:true">
