@@ -22,13 +22,22 @@ namespace Monitor_byc.Service.FormulaEnergy
         private DataTable GetFormulaPowerValues(string organizationId)
         {
             DataTable result;
+//            string queryString = @"select F.* from formula_power AS F,system_Organization AS S
+//                                    where 
+//                                    vDate=(select top 1 vDate from formula_power order by vDate desc) 
+//                                    and F.OrganizationID=@organizationId
+//                                    and F.OrganizationID=S.OrganizationID
+//                                  ";
             string queryString = @"select F.* from formula_power AS F,system_Organization AS S
                                     where 
                                     vDate=(select top 1 vDate from formula_power order by vDate desc) 
-                                    and F.OrganizationID=@organizationId
                                     and F.OrganizationID=S.OrganizationID
+									and S.LevelCode LIKE
+									(
+										SELECT LevelCode FROM system_Organization AS A WHERE A.OrganizationID=@organizationId
+									)+'%'        
                                   ";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
+            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId) };
             result = _dataFactory.Query(queryString, parameters);
             return result;
         }

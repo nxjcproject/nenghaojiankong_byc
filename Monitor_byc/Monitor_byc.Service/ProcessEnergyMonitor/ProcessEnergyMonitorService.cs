@@ -45,7 +45,8 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
             string sqlStr = @"SELECT E.VariableName,E.TableName,E.FieldName
                                 FROM [{0}].[dbo].[EnergyConsumptionContrast] AS E
                                 WHERE E.ViewName=@viewName AND
-                                E.OrganizationID=@organizationId";
+                                E.OrganizationID=@organizationId AND
+                                Enabled='True'";
             SqlParameter[] parameters = { new SqlParameter("viewName", viewName), new SqlParameter("organizationId", organizationId) };
             DataTable table = _dataFactory.Query(string.Format(sqlStr, dataBaseName), parameters);
             //Query query = new Query("EnergyConsumptionContrast");

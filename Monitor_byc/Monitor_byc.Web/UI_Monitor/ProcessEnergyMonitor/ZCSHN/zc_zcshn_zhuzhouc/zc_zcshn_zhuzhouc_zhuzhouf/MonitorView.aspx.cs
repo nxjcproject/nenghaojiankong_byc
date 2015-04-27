@@ -11,7 +11,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinker01
+namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.ZCSHN.zc_zcshn_zhuzhouc.zc_zcshn_zhuzhouc_zhuzhouf
 {
     public partial class MonitorView : WebStyleBaseForEnergy.webStyleBase
     {
@@ -20,26 +20,16 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
         protected void Page_Load(object sender, EventArgs e)
         {
             base.InitComponts();
-            string pageInfors="";
-            //if (Request.QueryString["PageId"] != null)
-            //{
-            //    pageId = Request.QueryString["PageId"].ToString().Trim();
-            //}
-            //else
-            //{
-            //    pageId = "sssss";
-            //}
-#if DEBUG            
-            pageInfors = GetPageIdByNodeId("zc_nxjc_byc_byf_clinker01,1#熟料线");
+            string pageInfors = "";
+#if DEBUG
+            pageInfors = GetPageIdByNodeId("zc_nxjc_byc_byf,saa");
 
 #elif !DEBUG
             string pageId=Request.QueryString["PageId"].ToString().Trim();
             pageInfors = GetPageIdByNodeId(pageId);
+            
 #endif
-            //string url = Request.Url.ToString(); 
-            //testId.Value = pageInfors;
-            //Response.Write("<javascript>"+pageId+","+pageInfors+","+url+"</javascript>");
-            //Response.End();
+
             string[] pageInfoArray = pageInfors.Split(',');
             string organizationId = pageInfoArray[0];
             string viewName = pageInfoArray[1];
@@ -57,39 +47,45 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
         public static SceneMonitor GetRealTimeData(string organizationId, string sceneName)
         {
             IList<DataItem> dataItems = new List<DataItem>();
-            string factoryLevel = OrganizationHelper.GetFactoryLevel(organizationId);
-            //string conn = ConnectionStringFactory.NXJCConnectionString;           
+            string factoryLevel = organizationId;
+
             //string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
-            //string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(factoryLevel);
+            string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(organizationId);
 
-            //string ammeterDataBaseName = ConnectionStringFactory.GetAmmeterDatabaseName(organizationId);
-            //string dcsDataBaseName = ConnectionStringFactory.GetDCSDatabaseName(organizationId);
-            //#region 获得表中实时数据
-            //ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
-            //DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
+            #region  注释掉的部分
+            /*
+            #region 获得表中实时数据
+            ProcessPowerMonitor precessPower = new ProcessPowerMonitor(connString);
+            DataTable sourceDt = precessPower.GetMonitorDatas(factoryLevel);
             //DataRow[] rows = sourceDt.Select(String.Format("OrganizationID='{0}'", organizationId));
+            IList<DataRow> rows = new List<DataRow>();
+            foreach(DataRow dr in sourceDt.Rows){
+                rows.Add(dr);
+            }
 
-            //string[] fields = { "本日合计", "本月累计", "本年累计" };
+            string[] fields = { "本日合计", "本月累计", "本年累计" };
             //dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
-            //#endregion
-            
-            #region 获得dcs实时数据(电流)
-            ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(connString);
-            IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName, ValueType.Current);
-            foreach (var item in monitorItems)
-            {
-                dataItems.Add(item);
-            }
+            dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows.ToArray(), fields).ToList();
             #endregion
+             */
 
-            #region 获得电表功率数据
-            ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(connString);
-            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName,ValueType.Power);
-            foreach (var item in ammeterItems)
-            {
-                dataItems.Add(item);
-            }
-            #endregion
+            //#region 获得dcs实时数据
+            //ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
+            //IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName);
+            //foreach (var item in monitorItems)
+            //{
+            //    dataItems.Add(item);
+            //}
+            //#endregion
+
+            //#region 获得电表功率数据
+            //ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(ammeterConn);
+            //IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName);
+            //foreach (var item in ammeterItems)
+            //{
+            //    dataItems.Add(item);
+            //}
+            //#endregion
 
             //#region 获得实时电能消耗数据
             //RealtimeFormulaValueService formulaValue = new RealtimeFormulaValueService(ammeterConn, "");
@@ -99,17 +95,18 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
             //    dataItems.Add(item);
             //}
             //#endregion
+            #endregion
 
-            #region  获得实时公式电耗（工序表格电耗）
+            #region  获得实时公式电耗
             FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(connString);
-            IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(organizationId, sceneName);
+            IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(factoryLevel, sceneName);
             foreach (var item in formulaEnergyItems)
             {
                 dataItems.Add(item);
             }
             #endregion
 
-            #region 获取公式电耗月平均值（工序表格月平均电耗）
+            #region 获取公式电耗月平均值
             IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage(organizationId, sceneName);
             foreach (var item in formulaEnergyConsumptionMonthlyAverageItems)
             {

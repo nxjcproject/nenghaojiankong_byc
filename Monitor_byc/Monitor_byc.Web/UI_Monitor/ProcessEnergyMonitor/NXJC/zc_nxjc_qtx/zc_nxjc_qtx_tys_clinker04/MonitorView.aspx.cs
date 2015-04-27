@@ -11,7 +11,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinker01
+namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.NXJC.zc_nxjc_qtx.zc_nxjc_qtx_tys_clinker04
 {
     public partial class MonitorView : WebStyleBaseForEnergy.webStyleBase
     {
@@ -20,7 +20,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
         protected void Page_Load(object sender, EventArgs e)
         {
             base.InitComponts();
-            string pageInfors="";
+            string pageInfors = "";
             //if (Request.QueryString["PageId"] != null)
             //{
             //    pageId = Request.QueryString["PageId"].ToString().Trim();
@@ -29,8 +29,8 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
             //{
             //    pageId = "sssss";
             //}
-#if DEBUG            
-            pageInfors = GetPageIdByNodeId("zc_nxjc_byc_byf_clinker01,1#熟料线");
+#if DEBUG
+            pageInfors = GetPageIdByNodeId("zc_nxjc_qtx_tys_clinker04,4#熟料线");
 
 #elif !DEBUG
             string pageId=Request.QueryString["PageId"].ToString().Trim();
@@ -72,7 +72,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
             //string[] fields = { "本日合计", "本月累计", "本年累计" };
             //dataItems = ProcessEnergyMonitorService.GetPowerMonitor(rows, fields).ToList();
             //#endregion
-            
+
             #region 获得dcs实时数据(电流)
             ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(connString);
             IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName, ValueType.Current);
@@ -84,7 +84,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.zc_nxjc_byc_byf_clinke
 
             #region 获得电表功率数据
             ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(connString);
-            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName,ValueType.Power);
+            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName, ValueType.Power);
             foreach (var item in ammeterItems)
             {
                 dataItems.Add(item);

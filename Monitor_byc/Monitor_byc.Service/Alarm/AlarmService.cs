@@ -33,7 +33,7 @@ namespace Monitor_byc.Service.Alarm
 								         SELECT LevelCode FROM system_Organization WHERE OrganizationID=@organizationId)+'%'
 										 )
                             ";
-            SqlParameter parameter = new SqlParameter("OrganizationID", organizationId);
+            SqlParameter parameter = new SqlParameter("organizationId", organizationId);
             DataTable resultTable = _dataFactory.Query(SqlStr, parameter);
             //DataTable resultTable = new DataTable();
             return resultTable;
