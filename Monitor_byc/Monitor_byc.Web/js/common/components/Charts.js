@@ -334,10 +334,11 @@ function GetBarChart(myChartObjId, myData, myTitle) {
                 location: 'e',
                 placement: 'outside'
             },
-            axes: {        
+            axes: {
                 xaxis: {
                     renderer: $.jqplot.CategoryAxisRenderer,
                     ticks: m_AxisX,
+					tickRenderer: $.jqplot.CanvasAxisTickRenderer,
 					tickOptions: {
 						angle: -30
 					},
@@ -467,9 +468,10 @@ function GetMultiBarChart(myChartObjId, myData, myTitle) {
             xaxis: {
                 renderer: $.jqplot.CategoryAxisRenderer,
                 ticks: m_AxisX,
-                tickOptions: {
-                    angle: -30
-                },
+				tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+				tickOptions: {
+					angle: -30
+				},
                 label: myData['Units']['UnitX'],
                 labelOptions: {
                     fontFamily: 'Helvetica',
