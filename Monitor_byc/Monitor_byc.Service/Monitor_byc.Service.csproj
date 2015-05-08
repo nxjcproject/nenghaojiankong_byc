@@ -56,6 +56,7 @@
     <Compile Include="ProcessEnergyMonitor\DataItem.cs" />
     <Compile Include="ProcessEnergyMonitor\DataSetInformation.cs" />
     <Compile Include="ProcessEnergyMonitor\EnergyConsumptionMonitor.cs" />
+    <Compile Include="ProcessEnergyMonitor\MultiMonitorShell.cs" />
     <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessPowerMonitor.cs" />
