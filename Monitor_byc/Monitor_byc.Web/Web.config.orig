@@ -1,0 +1,43 @@
+﻿<?xml version="1.0"?>
+<!--
+  有关如何配置 ASP.NET 应用程序的详细信息，请访问
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <connectionStrings>
+<<<<<<< HEAD
+    <!--<add name="ConnNXJC" connectionString="Data Source=Corphish;Initial Catalog=NXJC;User Id=sa;Password=cdy"/>-->
+    <add name="ConnNXJC" connectionString="Data Source=192.168.186.48;Initial Catalog=NXJC;User Id=sa;Password=111"/>
+    
+=======
+    <!--<add name="ConnNXJC" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=NXJC;Integrated Security=True"/>-->
+    <add name="ConnNXJC" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=NXJC;Integrated Security=True"/>
+
+    <add name="zc_nxjc_byc_byf" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=zc_nxjc_byc_byf;Integrated Security=True"/>
+
+    <add name="zc_nxjc_byc_byf_cementmill01" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=zc_nxjc_byc_byf_dcs01;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_efc_cementmill02" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Cement01;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_efc_cementmill03" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Cement01;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_tys_cementmill04" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Cement01;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_tys_cementmill05" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Cement01;Integrated Security=True"/>
+
+    <add name="zc_nxjc_qtx_efc_clinker02" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Clinker02;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_efc_clinker03" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Clinker03;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_tys_clinker04" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Clinker03;Integrated Security=True"/>
+    <add name="zc_nxjc_qtx_tys_clinker05" connectionString="Data Source=QH-20140814XCYI;Initial Catalog=Db_02_01_Clinker03;Integrated Security=True"/>
+>>>>>>> 更改监控画面
+  </connectionStrings>
+  <!--
+    有关 .NET 4.5 的 web.config 更改的说明，请参见 http://go.microsoft.com/fwlink/?LinkId=235367。
+
+    可在 <httpRuntime> 标记上设置以下特性。
+      <system.Web>
+        <httpRuntime targetFramework="4.5" />
+      </system.Web>
+  -->
+  <system.web>
+    <compilation debug="true" targetFramework="4.5"/>
+    <httpRuntime/>
+    <pages controlRenderingCompatibilityVersion="4.0"/>
+  </system.web>
+</configuration>

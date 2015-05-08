@@ -21,15 +21,32 @@ var publicData = {
 };
 
 function InitializePage() {
-    setTimeout(getLatestData, 1000);
+<<<<<<< HEAD
+    loadTemplate("template.html");
+    setTimeout(getData, 1000);
+}
 
+function getData() {
+    getLatestData();
     
+}
+function loadTemplate(url) {
+    // 将模板加载至 templatePlaceHolder
+    $("#template").load(url);
+=======
+    setTimeout(getLatestData, 1000);
+>>>>>>> 更改监控画面
 }
 function getLatestData() {
     //var m_MsgData;
     var dataToServer = {
+<<<<<<< HEAD
+        organizationId: pageOrganizationId,
+        sceneName: pageViewName
+=======
         organizationId: "",
         sceneName: ""
+>>>>>>> 更改监控画面
     };
     var urlString = "zc_nxjc_byc_byf_cementmill01.aspx/GetRealTimeData";
     $.ajax({
