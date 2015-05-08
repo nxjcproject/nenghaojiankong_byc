@@ -8,6 +8,6 @@ namespace Monitor_byc.Service.TrendTool
 {
     public interface IDataProvider
     {
-        decimal[] GetData(string variableName, DateTime startTime, DateTime stopTime);
+        IDictionary<string, decimal> GetData(string organizationId, string variableName, DateTime startTime, DateTime stopTime, string timeSpan);
     }
 }

@@ -22,8 +22,10 @@
 	<!-- jqplot 脚本开始 -->
 	<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="/lib/pllib/excanvas.js"></script><![endif]-->
 	<script type="text/javascript" src="/lib/pllib/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
 	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasTextRenderer.min.js"></script>
 	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.dateAxisRenderer.min.js"></script>
 	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.cursor.min.js"></script>
 	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.highlighter.min.js"></script>
 	<script type="text/javascript" src="/lib/pllib/plugins/jqplot.trendline.min.js"></script>
@@ -58,13 +60,15 @@
 	</style>
 		
 	<script>
+	    var DATA_POINT_PER_SCREEN = 5;
+
 		$(document).ready(function () {
 
 		    var thisId = window.location.hash;
 		    if (thisId != "" && thisId != undefined) {
 		        //alert(thisId);
 		    }
-		    currentData = data.slice(0, 20);
+		    currentData = data.slice(0, DATA_POINT_PER_SCREEN);
 		    plotChart();
 
 		    $('#chartContainer').panel({
@@ -153,15 +157,12 @@
 		});
 
 		var plot1 = null;
-		var data = [1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 1,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5,
-					1, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5, 2, 3, 6, 3, 7, 9, 1, 4, 6, 8, 2, 5];
+		var data = [['2015-04-01', 578.55], ['2015-04-02', 566.15], ['2015-04-03', 480.88], ['2015-04-04', 509.84],
+                    ['2015-04-05', 454.13], ['2015-04-06', 379.75], ['2015-04-07', 303.12], ['2015-04-08', 308.56],
+                    ['2015-04-09', 299.14], ['2015-04-10', 346.51], ['2015-04-11', 325.99], ['2015-04-12', 386.15],
+		            ['2015-04-13', 578.55], ['2015-04-14', 566.15], ['2015-04-15', 480.88], ['2015-04-16', 509.84],
+                    ['2015-04-17', 454.13], ['2015-04-18', 379.75], ['2015-04-19', 303.12], ['2015-04-20', 308.56],
+                    ['2015-04-21', 299.14], ['2015-04-22', 346.51], ['2015-04-23', 325.99], ['2015-04-24', 386.15]];
 		var currentData = [];
 
 		// chart 选项
@@ -198,13 +199,16 @@
 		    highlighter: {
 		        show: true,
 		        showMarker: true,
-		        useAxesFormatters: false,
-		        formatString: '%.1f, %.1f'
+		        useAxesFormatters: true
 		    },
 		    axes: {
 		        xaxis: {
+		            renderer: $.jqplot.DateAxisRenderer,
+		            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
 		            tickOptions: {
-		                showGridline: false
+		                showGridline: false,
+		                angle: -30,
+		                formatString: '%Y-%m-%d %H:%M:%S'
 		            }
 		        },
 		        yaxis: {
@@ -220,7 +224,8 @@
 		}
 
 		function test(value) {
-		    currentData = data.slice(value, value + 20);
+		    value = (value * (data.length - DATA_POINT_PER_SCREEN) / 100);
+		    currentData = data.slice(value, value + DATA_POINT_PER_SCREEN);
 		    if (plot1) {
 		        plot1.destroy();
 		    }

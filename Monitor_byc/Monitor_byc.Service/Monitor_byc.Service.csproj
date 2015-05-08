@@ -61,6 +61,10 @@
     <Compile Include="ProcessEnergyMonitor\ProcessPowerMonitor.cs" />
     <Compile Include="ProcessEnergyMonitor\SceneMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrendTool\AmmeterDataProvider.cs" />
+    <Compile Include="TrendTool\DataProviderFactory.cs" />
+    <Compile Include="TrendTool\IDataProvider.cs" />
+    <Compile Include="TrendTool\TrendLineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monitor_byc.Infrastructure\Monitor_byc.Infrastructure.csproj">
