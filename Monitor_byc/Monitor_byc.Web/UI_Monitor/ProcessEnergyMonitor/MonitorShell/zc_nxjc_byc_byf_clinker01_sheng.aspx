@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
@@ -23,7 +23,7 @@
 </head>
 <body>
     <div style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_sheng.png'); width: 1350px; height: 740px; overflow: hidden;">
-        <table class="mytable" style="position: absolute; top: 43px; left: 14px;">
+        <table class="mytable" style="position: absolute; top: 42px; left: 14px;">
             <tr>
                 <td><span id="Span32"></span></td>
             </tr>
@@ -34,7 +34,7 @@
                 <td><span id="crusher1P"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 136px; left: 14px;">
+        <table class="mytable" style="position: absolute; top: 137px; left: 15px;">
             <tr>
                 <td><span id="Span1"></span></td>
             </tr>
@@ -42,10 +42,10 @@
                 <td><span id=""></span></td>
             </tr>
             <tr>
-                <td><span id="Span2"></span></td>
+                <td><span id="limestoneMineBeltP"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 214px; left: 12px;">
+        <table class="mytable" style="position: absolute; top: 214px; left: 14px;">
             <tr>
                 <td><span id="Span4"></span></td>
             </tr>
@@ -53,21 +53,21 @@
                 <td><span id="Span5"></span></td>
             </tr>
             <tr>
-                <td><span id="Span6"></span></td>
+                <td><span id="limePilePeclaimerP"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 315px; left: 14px;">
+        <table class="mytable" style="position: absolute; top: 315px; left: 15px;">
             <tr>
                 <td><span id="Span7"></span></td>
             </tr>
             <tr>
-                <td><span id="Span8"></span></td>
+                <td><span id="limestoneStorageBeltC"></span></td>
             </tr>
             <tr>
-                <td><span id="Span9"></span></td>
+                <td><span id="limestoneStorageBeltP"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 39px; left: 185px;">
+        <table class="mytable" style="position: absolute; top: 39px; left: 187px;">
             <tr>
                 <td><span id="Span10"></span></td>
             </tr>
@@ -78,15 +78,15 @@
                 <td><span id="crusher2P"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 141px; left: 398px;">
+        <table class="mytable" style="position: absolute; top: 141px; left: 400px;">
             <tr>
                 <td><span id="Span19"></span></td>
             </tr>
             <tr>
-                <td><span id="Span20"></span></td>
+                <td><span id=" sandstoneCrusherC"></span></td>
             </tr>
             <tr>
-                <td><span id="Span21"></span></td>
+                <td><span id=" sandstoneCrusherP"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 356px; left: 496px;">
@@ -97,10 +97,10 @@
                 <td><span id="powderSelectingMachineC"></span></td>
             </tr>
             <tr>
-                <td><span id="Span3"></span></td>
+                <td><span id="powderSelectingMachineP"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 231px; left: 866px;">
+        <table class="mytable" style="position: absolute; top: 231px; left: 868px;">
             <tr>
                 <td><span id="Span15"></span></td>
             </tr>
@@ -111,7 +111,7 @@
                 <td><span id="circulatingFanP"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 218px; left: 1132px;">
+        <table class="mytable" style="position: absolute; top: 218px; left: 1133px;">
             <tr>
                 <td><span id="Span22"></span></td>
             </tr>
@@ -133,19 +133,19 @@
                 <td><span id="rawMealGrindingMainMotorP"></span></td>
             </tr>
         </table>
-         <table class="mytable" style="position: absolute; top: 425px; left: 1189px;">
+        <table class="mytable" style="position: absolute; top: 425px; left: 1191px;">
             <tr>
                 <td><span id="Span28"></span></td>
             </tr>
             <tr>
-                <td><span id="Span29"></span></td>
+                <td><span id="kilnTailExhaustFanC"></span></td>
             </tr>
             <tr>
                 <td><span id="kilnTailExhaustFanP"></span></td>
             </tr>
         </table>
-        
-        <table class="mytable" style="position: absolute; top: 562px; left: 95px;">
+
+        <table class="mytable" style="position: absolute; top: 562px; left: 99px;">
             <tr>
                 <td><span id="Span38"></span></td>
                 <td><span id="Span39"></span></td>

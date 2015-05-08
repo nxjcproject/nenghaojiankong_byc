@@ -29,7 +29,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
                 DataTable m_Result = _dataFactory.Query(m_Sql, m_Parameters);
                 return m_Result;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }

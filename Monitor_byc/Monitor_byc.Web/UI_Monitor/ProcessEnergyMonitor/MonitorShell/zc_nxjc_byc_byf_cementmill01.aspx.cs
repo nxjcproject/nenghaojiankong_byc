@@ -1,4 +1,5 @@
 ﻿using Monitor_byc.Infrastructure.Configuration;
+using Monitor_byc.Service.FormulaEnergy;
 using Monitor_byc.Service.ProcessEnergyMonitor;
 using System;
 using System.Collections.Generic;
@@ -48,14 +49,14 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             }
             #endregion
 
-            //#region 获得实时电能消耗数据
-            //RealtimeFormulaValueService formulaValue = new RealtimeFormulaValueService(ammeterConn, "");
-            //IEnumerable<DataItem> formulaValueItems = formulaValue.GetFormulaPowerConsumption(factoryLevel);
-            //foreach (var item in formulaValueItems)
-            //{
-            //    dataItems.Add(item);
-            //}
-            //#endregion
+            #region 获得实时电能消耗数据
+            RealtimeFormulaValueService formulaValue = new RealtimeFormulaValueService(ammeterConn, "");
+            IEnumerable<DataItem> formulaValueItems = formulaValue.GetFormulaPowerConsumption(factoryLevel);
+            foreach (var item in formulaValueItems)
+            {
+                dataItems.Add(item);
+            }
+            #endregion
 
             //#region  获得实时公式电耗
             //FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(ammeterConn);

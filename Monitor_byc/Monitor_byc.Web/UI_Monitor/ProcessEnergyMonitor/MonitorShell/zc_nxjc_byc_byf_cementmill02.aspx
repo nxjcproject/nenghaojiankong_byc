@@ -23,85 +23,85 @@
 </head>
 <body>
     <div style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill02.png'); width: 1350px; height: 740px; overflow: hidden;">
-          <table class="mytable" style="position: absolute; top: 47px; left: 120px;">
+        <table class="mytable" style="position: absolute; top: 44px; left: 114px;">
             <tr>
-                <td><span id="Span32"></span></td>              
+                <td><span id="Span32"></span></td>
             </tr>
             <tr>
-                <td><span id="gypsumCrusher2C"></span></td>              
+                <td><span id="gypsumCrusherC"></span></td>
             </tr>
             <tr>
-                <td><span id="gypsumCrusher2P"></span></td>                
-            </tr>
-        </table>
-         <table class="mytable" style="position: absolute; top: 186px; left: 3px;">
-            <tr>
-                <td><span id="Span9"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="Span10"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="Span11"></span></td>                
+                <td><span id="gypsumCrusherP"></span></td>
             </tr>
         </table>
-         <table class="mytable" style="position: absolute; top: 317px; left: 352px;">
+        <table class="mytable" style="position: absolute; top: 187px; left: -2px;">
             <tr>
-                <td><span id="Span12"></span></td>              
+                <td><span id="Span9"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineSettledRoller2C"></span></td>              
+                <td><span id="Span10"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineSettledRoller2P"></span></td>                
-            </tr>
-        </table>
-         <table class="mytable" style="position: absolute; top: 364px; left: 536px;">
-            <tr>
-                <td><span id="Span15"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="rollingMachineActionRoller2C"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="rollingMachineActionRoller2P"></span></td>                
+                <td><span id="clinkerStorageBeltP"></span></td>
             </tr>
         </table>
-         <table class="mytable" style="position: absolute; top: 327px; left: 734px;">
+        <table class="mytable" style="position: absolute; top: 318px; left: 348px;">
             <tr>
-                <td><span id="Span18"></span></td>              
+                <td><span id="Span12"></span></td>
             </tr>
             <tr>
-                <td><span id="powderSelectingStorehouse2C"></span></td>              
+                <td><span id="rollingMachineSettledRollerC"></span></td>
             </tr>
             <tr>
-                <td><span id="powderSelectingStorehouse2P"></span></td>                
-            </tr>
-        </table>
-        <table class="mytable" style="position: absolute; top: 434px; left: 844px;">
-            <tr>
-                <td><span id="Span21"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="cementMillMainMotor2C"></span></td>              
-            </tr>
-            <tr>
-                <td><span id="cementMillMainMotor2P"></span></td>                
+                <td><span id="rollingMachineSettledRollerP"></span></td>
             </tr>
         </table>
-         <table class="mytable" style="position: absolute; top: 105px; left: 915px;">
+        <table class="mytable" style="position: absolute; top: 363px; left: 533px;">
             <tr>
-                <td><span id="Span24"></span></td>              
+                <td><span id="Span15"></span></td>
             </tr>
             <tr>
-                <td><span id="mainExhaustFan2C"></span></td>              
+                <td><span id="rollingMachineActionRollerC"></span></td>
             </tr>
             <tr>
-                <td><span id="mainExhaustFan2P"></span></td>                
+                <td><span id="rollingMachineActionRollerP"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 328px; left: 730px;">
+            <tr>
+                <td><span id="Span18"></span></td>
+            </tr>
+            <tr>
+                <td><span id="powderSelectingStorehouseC"></span></td>
+            </tr>
+            <tr>
+                <td><span id="powderSelectingStorehouseP"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 434px; left: 839px;">
+            <tr>
+                <td><span id="Span21"></span></td>
+            </tr>
+            <tr>
+                <td><span id="cementMillMainMotorC"></span></td>
+            </tr>
+            <tr>
+                <td><span id="cementMillMainMotorP"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 105px; left: 911px;">
+            <tr>
+                <td><span id="Span24"></span></td>
+            </tr>
+            <tr>
+                <td><span id="mainExhaustFanC"></span></td>
+            </tr>
+            <tr>
+                <td><span id="mainExhaustFanP"></span></td>
             </tr>
         </table>
 
-        <table class="mytable" style="position: absolute; top: 551px; left: 86px;">
+        <table class="mytable" style="position: absolute; top: 552px; left: 88px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption">ssssss</span></td>
                 <td><span id="Span6">ssss</span></td>

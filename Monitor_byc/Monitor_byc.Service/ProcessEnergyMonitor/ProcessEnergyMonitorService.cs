@@ -25,6 +25,29 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         /// </summary>
         /// <param name="viewName"></param>
         /// <returns></returns>
+        private IEnumerable<DataSetInformation> GetDataSetInformation(string organizationId, string viewName)
+        {
+            IList<DataSetInformation> results = new List<DataSetInformation>();
+            Query query = new Query("EnergyConsumptionContrast");
+            query.AddCriterion("ViewName", "viewName", viewName, CriteriaOperator.Equal);
+            query.AddCriterion("OrganizationID", "organizationId", organizationId, CriteriaOperator.Equal);
+            DataTable table = _dataFactory.Query(query);
+            foreach (DataRow item in table.Rows)
+            {
+                results.Add(new DataSetInformation
+                {
+                    ViewId = item["VariableName"].ToString().Trim(),
+                    FieldName = item["FieldName"].ToString().Trim(),
+                    TableName = item["TableName"].ToString().Trim()
+                });
+            }
+            return results;
+        }
+        /// <summary>
+        /// 获得DataSetInformation
+        /// </summary>
+        /// <param name="viewName"></param>
+        /// <returns></returns>
         private IEnumerable<DataSetInformation> GetDataSetInformation(string organizationId, string viewName, ValueType myType)
         {
             string type = "";
@@ -90,6 +113,30 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
 
             return table;
         }
+        /// <summary>
+        /// 获得实时数据的table表
+        /// </summary>
+        /// <param name="dataSetInformations"></param>
+        /// <returns></returns>
+        private DataTable GetDataItemTable(IEnumerable<DataSetInformation> dataSetInformations)
+        {
+            //DataItem result = new DataItem();
+            ComplexQuery cmpquery = new ComplexQuery();
+            foreach (var item in dataSetInformations)
+            {
+                cmpquery.AddNeedField(item.TableName, item.FieldName, item.ViewId);
+            }
+            cmpquery.JoinCriterion = new JoinCriterion
+            {
+                DefaultJoinFieldName = "vDate",
+                JoinType = JoinType.FULL_JOIN
+            };
+            cmpquery.TopNumber = 1;
+            //cmpquery.OrderByClause = new OrderByClause("realtime_line_data.v_date", true);
+            DataTable table = _dataFactory.Query(cmpquery);
+
+            return table;
+        }
 
         /// <summary>
         /// 获得实时视图数据
@@ -113,6 +160,31 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
                     dataBaseName = Monitor_byc.Infrastructure.Configuration.ConnectionStringFactory.GetAmmeterDatabaseName(organizationId);
                 }
                 DataTable table = GetDataItemTable(dataSetInfor,dataBaseName);
+                string[] idList = GetTableColumnName(table);
+                foreach (var item in idList)
+                {
+                    result.Add(new DataItem
+                    {
+                        ID = item,
+                        Value = table.Rows[0][item].ToString().Trim()
+                    });
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// 获得实时视图数据
+        /// </summary>
+        /// <param name="viewName"></param>
+        /// <returns></returns>
+        public IEnumerable<DataItem> GetRealtimeDatas(string organizationId, string viewName)
+        {
+            IList<DataItem> result = new List<DataItem>();
+            //ArrayList idList = GetParametorsId(viewName);
+            IEnumerable<DataSetInformation> dataSetInfor = GetDataSetInformation(organizationId, viewName);
+            if (dataSetInfor.Count() != 0)
+            {
+                DataTable table = GetDataItemTable(dataSetInfor);
                 string[] idList = GetTableColumnName(table);
                 foreach (var item in idList)
                 {

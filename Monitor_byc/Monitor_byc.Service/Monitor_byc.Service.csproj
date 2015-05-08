@@ -60,6 +60,7 @@
     <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessPowerMonitor.cs" />
+    <Compile Include="ProcessEnergyMonitor\RealtimeFormulaValueService.cs" />
     <Compile Include="ProcessEnergyMonitor\SceneMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
