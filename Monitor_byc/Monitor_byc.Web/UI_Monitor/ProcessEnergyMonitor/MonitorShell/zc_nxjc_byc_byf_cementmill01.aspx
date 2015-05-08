@@ -103,19 +103,19 @@
 
         <table class="mytable" style="position: absolute; top: 552px; left: 88px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption">ssssss</span></td>
-                <td><span id="Span6">ssss</span></td>
-                <td><span id="Span3">ssss</span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption"></span></td>
+                <td><span id="Span6"></span></td>
+                <td><span id="Span3"></span></td>
             </tr>
             <tr>
-                <td><span id="Span1">1111</span></td>
-                <td><span id="Span7">2222</span></td>
-                <td><span id="Span4">ssss</span></td>
+                <td><span id="Span1"></span></td>
+                <td><span id="Span7"></span></td>
+                <td><span id="Span4"></span></td>
             </tr>
             <tr>
-                <td><span id="Span2">3333</span></td>
-                <td><span id="Span8">4444</span></td>
-                <td><span id="Span5">ssss</span></td>
+                <td><span id="Span2"></span></td>
+                <td><span id="Span8"></span></td>
+                <td><span id="Span5"></span></td>
             </tr>
         </table>
     </div>
