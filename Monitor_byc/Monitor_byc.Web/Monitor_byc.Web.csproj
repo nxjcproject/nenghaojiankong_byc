@@ -1635,6 +1635,7 @@
     <Content Include="UI_Monitor\ProcessEnergyMonitor\ZCSHN\zc_zcshn_zhuzhouc\zc_zcshn_zhuzhouc_zhuzhouf\template.html" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\ZCSHN\zc_zcshn_zhuzhouc\zc_zcshn_zhuzhouc_zhuzhouf_clinker01\MonitorView.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\ZCSHN\zc_zcshn_zhuzhouc\zc_zcshn_zhuzhouc_zhuzhouf_clinker01\template.html" />
+    <Content Include="UI_Monitor\TrendTool\TrendlineRenderer.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1731,6 +1732,13 @@
     </Compile>
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\ZCSHN\zc_zcshn_zhuzhouc\zc_zcshn_zhuzhouc_zhuzhouf_clinker01\MonitorView.aspx.designer.cs">
       <DependentUpon>MonitorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Monitor\TrendTool\TrendlineRenderer.aspx.cs">
+      <DependentUpon>TrendlineRenderer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_Monitor\TrendTool\TrendlineRenderer.aspx.designer.cs">
+      <DependentUpon>TrendlineRenderer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
