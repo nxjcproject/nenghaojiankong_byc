@@ -10,15 +10,17 @@
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css" />
 
+    <link rel="stylesheet" type="text/css" href="/UI_Monitor/css/common/mymonitor.css" />
+
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/common/jquery.utility.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
-    <script src="../../js/common/monitorjs.js"></script>
-    <script src="../../js/common/chartjs.js"></script>
-    <script src="../../js/common/SubMonitorAdapter.js"></script>
+    <script src="/UI_Monitor/js/common/monitorjs.js"></script>
+    <script src="/UI_Monitor/js/common/chartjs.js"></script>
+    <script src="/UI_Monitor/js/common/SubMonitorAdapter.js"></script>
     <title></title>
 </head>
 <body id ="SubMonitorBody" style ="margin:0px; padding:0px;overflow: auto;">
