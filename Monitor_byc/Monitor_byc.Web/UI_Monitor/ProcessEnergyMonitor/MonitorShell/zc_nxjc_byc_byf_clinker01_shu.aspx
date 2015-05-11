@@ -19,10 +19,12 @@
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
     <script src="../../js/common/monitorjs.js"></script>
+    <script src="../../js/common/chartjs.js"></script>
+    <script src="../../js/common/SubMonitorAdapter.js"></script>
     <title></title>
 </head>
-<body>
-    <div style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_shu.png'); width: 1350px; height: 740px; overflow: hidden;">
+<body id ="SubMonitorBody" style ="margin:0px; padding:0px;overflow: auto;">
+    <div id ="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_shu.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 75px; left: 30px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption">ssssss</span></td>

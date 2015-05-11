@@ -20,10 +20,11 @@
 
     <script src="../../js/common/monitorjs.js"></script>
     <script src="../../js/common/chartjs.js"></script>
+    <script src="../../js/common/SubMonitorAdapter.js"></script>
     <title></title>
 </head>
-<body>
-    <div style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill01.png'); width: 1350px; height: 740px; overflow: hidden;">
+<body id ="SubMonitorBody" style ="margin:0px; padding:0px;overflow: auto;">
+    <div id ="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill01.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 45px; left: 114px;">
             <tr>
                 <td><span id="Span32"></span></td>
