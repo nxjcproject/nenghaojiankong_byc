@@ -19,6 +19,7 @@
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
     <script src="../../js/common/monitorjs.js"></script>
+    <script src="../../js/common/chartjs.js"></script>
     <title></title>
 </head>
 <body>
