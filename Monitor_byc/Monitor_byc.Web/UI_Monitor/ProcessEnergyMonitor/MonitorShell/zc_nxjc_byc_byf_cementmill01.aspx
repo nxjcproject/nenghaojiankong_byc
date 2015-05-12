@@ -21,85 +21,89 @@
     <script src="/UI_Monitor/js/common/monitorjs.js"></script>
     <script src="/UI_Monitor/js/common/chartjs.js"></script>
     <script src="/UI_Monitor/js/common/SubMonitorAdapter.js"></script>
+    <script>
+        publicData.organizationId = "zc_nxjc_byc_byf_cementmill01";
+        publicData.sceneName = "1#水泥磨";
+    </script>
     <title></title>
 </head>
-<body id ="SubMonitorBody" style ="margin:0px; padding:0px;overflow: auto;">
-    <div id ="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill01.png'); width: 1350px; height: 740px; overflow: hidden;">
-        <table class="mytable" style="position: absolute; top: 45px; left: 114px;">
+<body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
+    <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill01.png'); width: 1350px; height: 740px; overflow: hidden;">
+        <table class="mytable" style="position: absolute; top: 46px; left: 114px;">
             <tr>
-                <td><span id="Span32"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="gypsumCrusherC"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>gypsumCrusher>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="gypsumCrusherP"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>gypsumCrusher>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 187px; left: -2px;">
+        <table class="mytable" style="position: absolute; top: 187px; left: -1px;">
             <tr>
-                <td><span id="Span9"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="Span10"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="clinkerStorageBeltP"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 318px; left: 349px;">
             <tr>
-                <td><span id="Span12"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineSettledRoller>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineSettledRollerC" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineSettledRoller>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineSettledRollerP" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineSettledRoller>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 363px; left: 534px;">
             <tr>
-                <td><span id="Span15"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineActionRoller>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineActionRollerC" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineActionRoller>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="rollingMachineActionRollerP" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>rollingMachineActionRoller>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 328px; left: 730px;">
             <tr>
-                <td><span id="Span18"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>powderSelectingStorehouse>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="powderSelectingStorehouseC" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>powderSelectingStorehouse>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="powderSelectingStorehouseP" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>powderSelectingStorehouse>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 434px; left: 839px;">
             <tr>
-                <td><span id="Span21"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementMillMainMotor>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="cementMillMainMotorC"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementMillMainMotor>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="cementMillMainMotorP"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementMillMainMotor>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 105px; left: 911px;">
             <tr>
-                <td><span id="Span24"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="mainExhaustFanC" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="mainExhaustFanP" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>Power" class="mchart"></span></td>
             </tr>
         </table>
 

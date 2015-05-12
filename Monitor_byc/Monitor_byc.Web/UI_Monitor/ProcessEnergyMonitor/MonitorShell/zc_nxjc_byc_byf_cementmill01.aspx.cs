@@ -40,9 +40,10 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             }
             #endregion
 
+            MonitorShellService shellService = new MonitorShellService("", ammeterConn, "");
+
             #region 获得电表功率数据
-            ProcessEnergyMonitorService ammeterService = new ProcessEnergyMonitorService(ammeterConn);
-            IEnumerable<DataItem> ammeterItems = ammeterService.GetRealtimeDatas(organizationId, sceneName);
+            IEnumerable<DataItem> ammeterItems = shellService.GetRealtimePower(organizationId);
             foreach (var item in ammeterItems)
             {
                 dataItems.Add(item);
@@ -50,39 +51,12 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             #endregion
 
             #region 获得实时电能消耗数据
-            RealtimeFormulaValueService formulaValue = new RealtimeFormulaValueService(ammeterConn, "");
-            IEnumerable<DataItem> formulaValueItems = formulaValue.GetFormulaPowerConsumption(factoryLevel);
+            IEnumerable<DataItem> formulaValueItems = shellService.GetRealtimeEnergyConsumption(organizationId);
             foreach (var item in formulaValueItems)
             {
                 dataItems.Add(item);
             }
             #endregion
-
-            //#region  获得实时公式电耗
-            //FormulaEnergyService formulaEnergyServer = new FormulaEnergyService(ammeterConn);
-            //IEnumerable<DataItem> formulaEnergyItems = formulaEnergyServer.GetFormulaPowerConsumption(factoryLevel);
-            //foreach (var item in formulaEnergyItems)
-            //{
-            //    dataItems.Add(item);
-            //}
-            //#endregion
-
-            //#region 获取公式电耗月平均值
-            //IEnumerable<DataItem> formulaEnergyConsumptionMonthlyAverageItems = formulaEnergyServer.GetFormulaPowerConsumptionMonthlyAverage();
-            //foreach (var item in formulaEnergyConsumptionMonthlyAverageItems)
-            //{
-            //    dataItems.Add(item);
-            //}
-            //#endregion
-
-            //#region 获得实时公式功率
-            //FormulaPowerService formulaPowerServer = new FormulaPowerService(connString);
-            //IEnumerable<DataItem> formulaPowerItems = formulaPowerServer.GetFormulaPower(factoryLevel);
-            //foreach (var item in formulaPowerItems)
-            //{
-            //    dataItems.Add(item);
-            //}
-            //#endregion
 
             SceneMonitor result = new SceneMonitor();
             result.Name = sceneName;
