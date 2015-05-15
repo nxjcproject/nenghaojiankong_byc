@@ -153,14 +153,14 @@ function horizontalTrendlineQuery() {
 
     // 获取起止时间
 
-    var startTime = new Date($('#StartTime').datebox('getValue'));
+    var startTime = $('#StartTime').datebox('getValue');
     var endTime = new Date($('#EndTime').datebox('getValue'));
 
 
     $.ajax({
         type: "POST",
         url: "/UI_Monitor/ProcessEnergyMonitor/TrendLineAnalysis/HorizontalAnalysis.asmx/GetHorizontalAnalysisTrendline",
-        data: "{tagItems:'" + tagItems + "',trendlineType:'" + trendlineType + "',startTime:'" + startTime.toLocaleDateString() + "',endTime:'" + endTime.toLocaleDateString() + "'}",
+        data: "{tagItems:'" + tagItems + "',trendlineType:'" + trendlineType + "',startTime:'" + startTime.toString() + "',endTime:'" + endTime.toLocaleDateString() + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {

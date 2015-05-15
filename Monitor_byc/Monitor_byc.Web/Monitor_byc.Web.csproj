@@ -1609,6 +1609,7 @@
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
     <Content Include="UI_Monitor\css\common\mymonitor.css" />
     <Content Include="UI_Monitor\css\common\trendlineAnalysis.css" />
+    <Content Include="UI_Monitor\css\common\trendlineRenderer.css" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill01.png" />
     <Content Include="UI_Monitor\images\page\zc_nxjc_byc_byf_cementmill02.png" />
@@ -1627,6 +1628,7 @@
     <Content Include="UI_Monitor\js\common\MonitorShell.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_monitorView.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_template.js" />
+    <Content Include="UI_Monitor\js\common\trendlineRenderer.js" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\zc_nxjc_byc_byf.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\zc_nxjc_byc_byf_cementmill01.aspx" />

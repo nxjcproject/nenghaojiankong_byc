@@ -37,39 +37,35 @@
 	<!-- colorpicker 脚本开始 -->
 	<script type="text/javascript" src="/lib/cplib/js/colorpicker.js"></script>
 	<!-- colorpicker 脚本结束 -->
-		
-	<style>
-	body {
-		min-width: 800px;
-		min-height: 600px;
-	}
-	.jqplot-axis {
-		font-size: 12px;
-		color: grey;
-	}
-	.jqplot-highlighter-tooltip {
-		font-size: 12px;
-		color: grey;
-		background-color: white;
-	}
-	.jqplot-cursor-tooltip {
-		font-size: 12px;
-		color: grey;
-		background-color: white;
-	}
-	</style>
-		
+	
+    <!-- trendlineRenderer 样式开始 -->
+    <link rel="stylesheet" type="text/css" href="/UI_Monitor/css/common/trendlineRenderer.css" />
+	<!-- trendlineRenderer 样式结束 -->
+
 	<script>
 	    var DATA_POINT_PER_SCREEN = 5;
 
+	    var variableId = '';
+
 		$(document).ready(function () {
 
-		    var thisId = window.location.hash;
-		    if (thisId != "" && thisId != undefined) {
-		        //alert(thisId);
+		    variableId = window.location.hash;
+		    if (variableId != "" && variableId != undefined) {
+		        variableId = variableId.substr(1, variableId.length - 1);
 		    }
-		    currentData = data.slice(0, DATA_POINT_PER_SCREEN);
-		    plotChart();
+
+		    //设置默认为十天的时间
+
+		    var startDate = new Date();
+		    var endDate = new Date();
+		    startDate.setDate(startDate.getDate() - 10);
+		    var dateStr = startDate.getFullYear().toString() + '-' + (startDate.getMonth() + 1).toString() + '-' + startDate.getDate();
+		    $('#startTime').datebox('setValue', dateStr);
+		    $('#endTime').datebox('setValue', endDate.toDateString());
+
+		    getData();
+
+
 
 		    $('#chartContainer').panel({
 		        onResize: function (w, h) {
@@ -157,12 +153,7 @@
 		});
 
 		var plot1 = null;
-		var data = [['2015-04-01', 578.55], ['2015-04-02', 566.15], ['2015-04-03', 480.88], ['2015-04-04', 509.84],
-                    ['2015-04-05', 454.13], ['2015-04-06', 379.75], ['2015-04-07', 303.12], ['2015-04-08', 308.56],
-                    ['2015-04-09', 299.14], ['2015-04-10', 346.51], ['2015-04-11', 325.99], ['2015-04-12', 386.15],
-		            ['2015-04-13', 578.55], ['2015-04-14', 566.15], ['2015-04-15', 480.88], ['2015-04-16', 509.84],
-                    ['2015-04-17', 454.13], ['2015-04-18', 379.75], ['2015-04-19', 303.12], ['2015-04-20', 308.56],
-                    ['2015-04-21', 299.14], ['2015-04-22', 346.51], ['2015-04-23', 325.99], ['2015-04-24', 386.15]];
+		var data = [];
 		var currentData = [];
 
 		// chart 选项
@@ -223,6 +214,57 @@
 		    plot1 = $.jqplot('chart', [currentData], chartOptions);
 		}
 
+		function getData() {
+
+		    var queryUrl = "TrendlineRenderer.aspx/GetData";
+
+		    var startTime = $('#startTime').datebox('getValue');
+		    var endTime = $('#endTime').datebox('getValue');
+
+		    var dataToSend = "{id:'" + variableId + "', startTime:'" + startTime.toString() + "', endTime:'" + endTime.toString() + "', timeSpan:'" + 5 + "'}";
+
+		    $.ajax({
+		        type: "POST",
+		        url: queryUrl,
+		        data: dataToSend,
+		        contentType: "application/json; charset=utf-8",
+		        dataType: "json",
+		        success: function (msg) {
+		            formatData(msg.d);
+		        }
+		    });
+		}
+
+		function getData2() {
+
+		    var startTime = new Date($('#StartTime').datebox('getValue'));
+		    var endTime = new Date($('#EndTime').datebox('getValue'));
+
+		    var dataToSend = '';
+
+		    $.ajax({
+		        type: "POST",
+		        url: "TrendlineRenderer.aspx/GetData",
+		        data: JSON.stringify(dataToServer),
+		        contentType: "application/json; charset=utf-8",
+		        dataType: "json",
+		        success: function (msg) {
+		            formatData(msg.d);
+		        }
+		    });
+		}
+
+		function formatData(json) {
+		    data = [];
+		    for (var date in json) {
+		        data.push([date, json[date]]);
+		    }
+
+		    DATA_POINT_PER_SCREEN = data.length / 10;
+		    currentData = data.slice(0, DATA_POINT_PER_SCREEN);
+		    plotChart();
+		}
+
 		function test(value) {
 		    value = (value * (data.length - DATA_POINT_PER_SCREEN) / 100);
 		    currentData = data.slice(value, value + DATA_POINT_PER_SCREEN);
@@ -243,13 +285,13 @@
 			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'">帮助</a>
 		</div>
 		<div class="easyui-panel" style="width:100%;margin-top:-2px;padding:4px;">
-			<input class="easyui-datetimebox" style="width:145px"> - <input class="easyui-datetimebox" style="width:145px">
+			<input id="startTime" class="easyui-datetimebox" style="width:145px" /> - <input id="endTime" class="easyui-datetimebox" style="width:145px" />
 			<select class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width:60px;auto-height:true;">
 				<option value="AL">5分钟</option>
 				<option value="AK">1小时</option>
 			</select>
 			<!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">查询</a>-->
-			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">刷新</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="getData()">刷新</a>
 			<a href="javascript:void(0)" name="lineFilled" class="easyui-linkbutton" data-options="plain:true,toggle:true">填充</a>
 			<a href="javascript:void(0)" name="lineTrend" class="easyui-linkbutton" data-options="plain:true,toggle:true">趋势</a>
 		</div>

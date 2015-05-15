@@ -63,10 +63,13 @@
     <Compile Include="ProcessEnergyMonitor\RealtimeFormulaValueService.cs" />
     <Compile Include="ProcessEnergyMonitor\SceneMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrendTool\AmmeterDataProvider.cs" />
     <Compile Include="TrendTool\DataProviderFactory.cs" />
+    <Compile Include="TrendTool\DCSDataProvider.cs" />
+    <Compile Include="TrendTool\HistoryFormulaValueDataProvider.cs" />
     <Compile Include="TrendTool\IDataProvider.cs" />
     <Compile Include="TrendTool\TrendLineService.cs" />
+    <Compile Include="TrendTool\Utility.cs" />
+    <Compile Include="TrendTool\VariableParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monitor_byc.Infrastructure\Monitor_byc.Infrastructure.csproj">
