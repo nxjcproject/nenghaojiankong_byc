@@ -8,7 +8,7 @@ table.mytable {
 }
     table.mytable td {
         /*border-width: 1px;*/
-        padding: 2px;
+        /*padding: 2px;*/
         /*border-style: solid;
         border-color: #666666;*/
         /*text-align: right;*/
@@ -20,7 +20,7 @@ table.mytable {
         color:rgb(0,255,0);
         font-size:12px;
         font-weight:bold;
-        width:65px;
+        width:60px;
         height:15px;
         /*position: relative*/
     }

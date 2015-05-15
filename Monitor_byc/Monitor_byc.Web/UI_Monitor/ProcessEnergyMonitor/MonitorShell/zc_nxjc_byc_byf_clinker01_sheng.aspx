@@ -29,7 +29,7 @@
 </head>
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_sheng.png'); width: 1350px; height: 740px; overflow: hidden;">
-        <table class="mytable" style="position: absolute; top: 42px; left: 14px;">
+        <table class="mytable" style="position: absolute; top: 45px; left: 19px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf>crusher1>ElectricityConsumption"></span></td>
             </tr>
@@ -40,7 +40,7 @@
                 <td><span id="zc_nxjc_byc_byf>crusher1>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 137px; left: 15px;">
+        <table class="mytable" style="position: absolute; top: 138px; left: 19px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>ElectricityConsumption"></span></td>
             </tr>
@@ -51,7 +51,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 214px; left: 14px;">
+        <table class="mytable" style="position: absolute; top: 217px; left: 19px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>limePilePeclaimer>ElectricityConsumption"></span></td>
             </tr>
@@ -62,7 +62,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>limePilePeclaimer>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 315px; left: 15px;">
+        <table class="mytable" style="position: absolute; top: 316px; left: 20px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBelt>ElectricityConsumption"></span></td>
             </tr>
@@ -73,7 +73,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBelt>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 39px; left: 187px;">
+        <table class="mytable" style="position: absolute; top: 41px; left: 193px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf>crusher2>ElectricityConsumption"></span></td>
             </tr>
@@ -84,7 +84,7 @@
                 <td><span id="zc_nxjc_byc_byf>crusher2>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 141px; left: 400px;">
+        <table class="mytable" style="position: absolute; top: 141px; left: 406px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>sandstoneCrusher>ElectricityConsumption"></span></td>
             </tr>
@@ -95,7 +95,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>sandstoneCrusher>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 356px; left: 496px;">
+        <table class="mytable" style="position: absolute; top: 358px; left: 502px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>powderSelectingMachine>ElectricityConsumption"></span></td>
             </tr>
@@ -106,7 +106,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>powderSelectingMachine>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 231px; left: 868px;">
+        <table class="mytable" style="position: absolute; top: 232px; left: 873px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>circulatingFan>ElectricityConsumption"></span></td>
             </tr>
@@ -117,7 +117,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>circulatingFan>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 218px; left: 1133px;">
+        <table class="mytable" style="position: absolute; top: 221px; left: 1138px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>highTemperatureFan>ElectricityConsumption"></span></td>
             </tr>
@@ -128,7 +128,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>highTemperatureFan>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 607px; left: 511px;">
+        <table class="mytable" style="position: absolute; top: 608px; left: 515px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>rawMealGrindingMainMotor>ElectricityConsumption"></span></td>
             </tr>
@@ -139,7 +139,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>rawMealGrindingMainMotor>Power"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 425px; left: 1191px;">
+        <table class="mytable" style="position: absolute; top: 427px; left: 1196px;">
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>kilnTailExhaustFan>ElectricityConsumption"></span></td>
             </tr>
@@ -151,37 +151,37 @@
             </tr>
         </table>
 
-        <table class="mytable" style="position: absolute; top: 563px; left: 94px;">
+        <table class="mytable" style="position: absolute; top: 563px; left: 97px;">
             <tr>
-                <td><span id="Span38"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation>ElectricityQuantity"></span></td>
             </tr>
             <tr>
-                <td><span id="Span40"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_MixtureMaterialsOutput>Material"></span></td>
             </tr>
             <tr>
-                <td><span id="Span42"></span></td>
-            </tr>
-        </table>
-        <table class="mytable" style="position: absolute; top: 563px; left: 167px;">
-            <tr>
-                <td><span id="Span1"></span></td>
-            </tr>
-            <tr>
-                <td><span id="Span2"></span></td>
-            </tr>
-            <tr>
-                <td><span id="Span3"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation>ElectricityConsumption"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 563px; left: 241px;">
+        <table class="mytable" style="position: absolute; top: 564px; left: 170px;">
             <tr>
-                <td><span id="Span4"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityQuantity>Class"></span></td>
             </tr>
             <tr>
-                <td><span id="Span5"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_MixtureMaterialsOutput>Class"></span></td>
             </tr>
             <tr>
-                <td><span id="Span6"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityConsumption>Class"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 565px; left: 247px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityQuantity>Day"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_MixtureMaterialsOutput>Day"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityConsumption>Day"></span></td>
             </tr>
         </table>
     </div>

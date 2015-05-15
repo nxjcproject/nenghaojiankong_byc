@@ -75,7 +75,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
             return results;
         }
         /// <summary>
-        /// 获得实时功率
+        /// 获得实时功率、电量、煤粉消耗量
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
@@ -83,25 +83,37 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         {
             IList<DataItem> results = new List<DataItem>();
 
-            string queryString = @"select OrganizationID,VariableID,Power from [dbo].[RealtimeFormulaValue] 
-                                   where OrganizationID=@organizationId";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId) };
+            string queryString = @"select OrganizationID,VariableID,Power,FormulaValue,CoalDustConsumption from [dbo].[RealtimeFormulaValue] 
+                                   where OrganizationID like @organizationId";
+            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
             DataTable dt = _companyFactory.Query(queryString, parameters);
 
             foreach (DataRow dr in dt.Rows)
             {
-                DataItem item = new DataItem
+                DataItem itemPower = new DataItem
                 {
-                    ID = dr["OrganizationID"].ToString().Trim() + ">" + dr["VariableID"].ToString().Trim() + ">" + "Power",
+                    ID = dr["OrganizationID"].ToString().Trim() + ">" + dr["VariableID"].ToString().Trim() + ">Power",
                     Value = dr["Power"].ToString().Trim()
                 };
-                results.Add(item);
+                results.Add(itemPower);
+                DataItem itemFormulaValue = new DataItem
+                {
+                    ID = dr["OrganizationID"].ToString().Trim() + ">" + dr["VariableID"].ToString().Trim() + ">ElectricityQuantity",
+                    Value = dr["FormulaValue"].ToString().Trim()
+                };
+                results.Add(itemFormulaValue);
+                DataItem itemCoalDustConsumption = new DataItem
+                {
+                    ID = dr["OrganizationID"].ToString().Trim() + ">" + dr["VariableID"].ToString().Trim() + ">PulverizedCoalInput",
+                    Value = dr["CoalDustConsumption"].ToString().Trim()
+                };
+                results.Add(itemCoalDustConsumption);
             }
 
             return results;
         }
         /// <summary>
-        /// 获得实时电耗
+        /// 获得实时电耗、煤耗
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
@@ -109,27 +121,36 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
         {
             IList<DataItem> results = new List<DataItem>();
 
-            string queryString = @"select OrganizationID,VariableID,FormulaValue,DenominatorValue from [dbo].[RealtimeFormulaValue] 
-                                where OrganizationID=@organizationId";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId) };
+            string queryString = @"select OrganizationID,VariableID,FormulaValue,CoalDustConsumption,DenominatorValue from [dbo].[RealtimeFormulaValue] 
+                                where OrganizationID like @organizationId";
+            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
             DataTable dt = _companyFactory.Query(queryString, parameters);
 
             foreach (DataRow item in dt.Rows)
             {
-                DataItem dataItem = new DataItem();
-                
-                decimal formulaValue = 0;
-                decimal.TryParse(item["FormulaValue"].ToString().Trim(), out formulaValue);
-
                 if (!Convert.IsDBNull(item["DenominatorValue"]))
                 {
                     decimal denominatorValue = 0;
                     decimal.TryParse(item["DenominatorValue"].ToString().Trim(), out denominatorValue);
                     if (denominatorValue != 0)
                     {
-                        dataItem.ID = item["OrganizationID"].ToString().Trim() + ">" + item["VariableID"].ToString().Trim() + ">" + "ElectricityConsumption";
-                        dataItem.Value = (formulaValue / denominatorValue).ToString();
-                        results.Add(dataItem);
+                        decimal formulaValue = 0;
+                        decimal.TryParse(item["FormulaValue"].ToString().Trim(), out formulaValue);
+                        decimal coalDustConsumption = 0;
+                        decimal.TryParse(item["CoalDustConsumption"].ToString().Trim(), out coalDustConsumption);
+
+                        DataItem itemElectricityConsumption = new DataItem
+                        {
+                            ID = item["OrganizationID"].ToString().Trim() + ">" + item["VariableID"].ToString().Trim() + ">" + "ElectricityConsumption",
+                            Value = (formulaValue / denominatorValue).ToString()
+                        };
+                        results.Add(itemElectricityConsumption);
+                        DataItem itemCoalConsumption = new DataItem
+                        {
+                            ID = item["OrganizationID"].ToString().Trim() + ">" + item["VariableID"].ToString().Trim() + ">" + "CoalConsumption",
+                            Value = (coalDustConsumption / denominatorValue).ToString()
+                        };
+                        results.Add(itemCoalConsumption);
                     }
                 }
             }
