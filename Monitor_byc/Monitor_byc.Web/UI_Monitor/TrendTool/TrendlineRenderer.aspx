@@ -220,8 +220,9 @@
 
 		    var startTime = $('#startTime').datebox('getValue');
 		    var endTime = $('#endTime').datebox('getValue');
+		    var timeSpan = $('#timeSpan').combobox('getValue');
 
-		    var dataToSend = "{id:'" + variableId + "', startTime:'" + startTime.toString() + "', endTime:'" + endTime.toString() + "', timeSpan:'" + 5 + "'}";
+		    var dataToSend = "{id:'" + variableId + "', startTime:'" + startTime.toString() + "', endTime:'" + endTime.toString() + "', timeSpan:'" + timeSpan + "'}";
 
 		    $.ajax({
 		        type: "POST",
@@ -235,12 +236,12 @@
 		    });
 		}
 
-		function getData2() {
+		function getBriefData() {
 
 		    var startTime = new Date($('#StartTime').datebox('getValue'));
 		    var endTime = new Date($('#EndTime').datebox('getValue'));
 
-		    var dataToSend = '';
+		    var dataToSend = "{id:'" + variableId + "', startTime:'" + startTime.toString() + "', endTime:'" + endTime.toString() + "'}";
 
 		    $.ajax({
 		        type: "POST",
@@ -265,7 +266,10 @@
 		    plotChart();
 		}
 
-		function test(value) {
+		function sliderChanged(value) {
+		    if (data.length < DATA_POINT_PER_SCREEN)
+		        return;
+
 		    value = (value * (data.length - DATA_POINT_PER_SCREEN) / 100);
 		    currentData = data.slice(value, value + DATA_POINT_PER_SCREEN);
 		    if (plot1) {
@@ -282,13 +286,15 @@
 			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" onclick="$('#dlgConfig').dialog('open')">设置</a>
 			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'" onclick="$('#dlgColor').dialog('open')">颜色</a>
 			<a href="javascript:void(0)" class="easyui-menubutton" data-options="plain:true,menu:'#menAction'">操作</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'">帮助</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'" onclick="$('#dlgHelp').dialog('open')">帮助</a>
 		</div>
 		<div class="easyui-panel" style="width:100%;margin-top:-2px;padding:4px;">
 			<input id="startTime" class="easyui-datetimebox" style="width:145px" /> - <input id="endTime" class="easyui-datetimebox" style="width:145px" />
-			<select class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width:60px;auto-height:true;">
-				<option value="AL">5分钟</option>
-				<option value="AK">1小时</option>
+			<select id="timeSpan" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width:80px;auto-height:true;">
+				<option value="5">05分钟</option>
+                <option value="15">15分钟</option>
+				<option value="60">01小时</option>
+                <option value="360">06小时</option>
 			</select>
 			<!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">查询</a>-->
 			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick="getData()">刷新</a>
@@ -296,16 +302,17 @@
 			<a href="javascript:void(0)" name="lineTrend" class="easyui-linkbutton" data-options="plain:true,toggle:true">趋势</a>
 		</div>
 	</div>
-	<div data-options="region:'south',border:false,split:true" style="height:100px;">
+	<div data-options="region:'south',border:false,split:true" style="height:80px;">
 		<table class="easyui-datagrid" data-options="singleSelect:true,fit:true">
 			<thead>
 				<tr>
-					<th data-options="field:'itemid',width:80,align:'center'">显示</th>
-					<th data-options="field:'productid',width:100,align:'center'">颜色</th>
-					<th data-options="field:'listprice',width:100,align:'center'">标签</th>
-					<th data-options="field:'unitcost',width:100,align:'center'">平均值</th>
-					<th data-options="field:'attr1',width:100,align:'center'">下限</th>
-					<th data-options="field:'status',width:100,align:'center'">上限</th>
+					<th data-options="field:'id',width:80,align:'center'">标识</th>
+					<th data-options="field:'description',width:100,align:'center'">描述</th>
+					<th data-options="field:'average',width:100,align:'center'">平均值</th>
+					<th data-options="field:'minValue',width:100,align:'center'">最小值</th>
+					<th data-options="field:'maxvalue',width:100,align:'center'">最大值</th>
+					<th data-options="field:'startTime',width:100,align:'center'">起始时间</th>
+					<th data-options="field:'endTime',width:100,align:'center'">终止时间</th>
 				</tr>
 			</thead>
 		</table>
@@ -316,10 +323,12 @@
 				<div id="chart" style="width:100%;height:100%;"></div>
 			</div>
 			<div id="sliderContainer" data-options="region:'south',border:false" style="height:20px;overflow:hidden;background-color:black;">
-				<input class="easyui-slider" data-options="onChange:test" style="margin-bottom:0px;" />
+				<input class="easyui-slider" data-options="onChange:sliderChanged" style="margin-bottom:0px;" />
 			<div>
 		<div>
 	</div>
+
+    <!-- 配置窗口开始 -->
 	<div id="dlgConfig" class="easyui-dialog" title="设置" style="width:400px;height:200px;padding:10px"
 			data-options="
 				closed:true,
@@ -361,15 +370,45 @@
             </ul>
         </div>
 	</div>
+    <!-- 配置窗口结束 -->
+
+    <!-- 颜色窗口开始 -->
 	<div id="dlgColor" class="easyui-dialog" title="颜色" style="width:370px;height:212px;padding:0px"
 			data-options="closed:true,modal:true">
 		<div id="colorpickerContainer"></div>
     </div>
+    <!-- 颜色窗口结束 -->
+
+    <!-- 帮助窗口开始 -->
+	<div id="dlgHelp" class="easyui-dialog" title="帮助" style="width:400px;height:300px;padding:10px"
+			data-options="
+                iconCls:'icon-help',
+				closed:true,
+				modal:true,
+				buttons: [{
+					text:'确认',
+					iconCls:'icon-ok',
+					handler:function(){
+						$('#dlgHelp').dialog('close');
+					}
+				}]
+			">
+        <div>
+            <ul>
+                <li>文档编写中。</li>
+            </ul>
+        </div>
+	</div>
+    <!-- 帮助窗口结束 -->
+
+    <!-- 操作菜单开始 -->
 	<div id="menAction" style="width:100px;">
 		<div>打印</div>
 		<div class="menu-sep"></div>
 		<div>保存</div>
 	</div>
+    <!-- 操作菜单结束 -->
+
     <form id="form1" runat="server"></form>
 </body>
 </html>
