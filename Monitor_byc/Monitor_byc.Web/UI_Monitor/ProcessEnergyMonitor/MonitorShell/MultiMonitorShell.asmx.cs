@@ -59,7 +59,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             MonitorShellService shellService = new MonitorShellService("", ammeterConn, "");
 
             #region 获得电表功率数据
-            IEnumerable<DataItem> ammeterItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimePowerElectricityCoalDust).GetDataItem(organizationId);//shellService.GetRealtimePower(organizationId);
+            IEnumerable<DataItem> ammeterItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimePowerElectricityCoalDust).GetDataItem(factoryLevelOrganizaiontId);//shellService.GetRealtimePower(organizationId);
             foreach (var item in ammeterItems)
             {
                 dataItems.Add(item);
@@ -67,7 +67,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             #endregion
 
             #region 获得实时电能消耗数据
-            IEnumerable<DataItem> formulaValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimeElectricityCoalConsumption).GetDataItem(organizationId);//shellService.GetRealtimeEnergyConsumption(organizationId);
+            IEnumerable<DataItem> formulaValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimeElectricityCoalConsumption).GetDataItem(factoryLevelOrganizaiontId);//shellService.GetRealtimeEnergyConsumption(organizationId);
             foreach (var item in formulaValueItems)
             {
                 dataItems.Add(item);
@@ -75,7 +75,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             #endregion
 
             #region 获得物料消耗
-            IEnumerable<DataItem> materialValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.MaterialConsumption).GetDataItem(organizationId);
+            IEnumerable<DataItem> materialValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.MaterialConsumption).GetDataItem(factoryLevelOrganizaiontId);
             foreach (var item in materialValueItems)
             {
                 dataItems.Add(item);
