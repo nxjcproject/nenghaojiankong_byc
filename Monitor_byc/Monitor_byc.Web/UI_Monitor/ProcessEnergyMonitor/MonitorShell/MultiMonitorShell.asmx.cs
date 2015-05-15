@@ -1,5 +1,6 @@
 ﻿using Monitor_byc.Infrastructure.Configuration;
 using Monitor_byc.Service.ProcessEnergyMonitor;
+using Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             MonitorShellService shellService = new MonitorShellService("", ammeterConn, "");
 
             #region 获得电表功率数据
-            IEnumerable<DataItem> ammeterItems = shellService.GetRealtimePower(organizationId);
+            IEnumerable<DataItem> ammeterItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimePowerElectricityCoalDust).GetDataItem(factoryLevelOrganizaiontId);//shellService.GetRealtimePower(organizationId);
             foreach (var item in ammeterItems)
             {
                 dataItems.Add(item);
@@ -66,8 +67,16 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             #endregion
 
             #region 获得实时电能消耗数据
-            IEnumerable<DataItem> formulaValueItems = shellService.GetRealtimeEnergyConsumption(organizationId);
+            IEnumerable<DataItem> formulaValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.RealtimeElectricityCoalConsumption).GetDataItem(factoryLevelOrganizaiontId);//shellService.GetRealtimeEnergyConsumption(organizationId);
             foreach (var item in formulaValueItems)
+            {
+                dataItems.Add(item);
+            }
+            #endregion
+
+            #region 获得物料消耗
+            IEnumerable<DataItem> materialValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.MaterialConsumption).GetDataItem(factoryLevelOrganizaiontId);
+            foreach (var item in materialValueItems)
             {
                 dataItems.Add(item);
             }
@@ -80,7 +89,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             MonitorShellService shellService = new MonitorShellService(connString, "", "");
 
             #region 获得当班、当日和当月的电量
-            IEnumerable<DataItem> monitorItems = shellService.GetCDMElectricity(organizationId);
+            IEnumerable<DataItem> monitorItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.ClassDayMonthElectricity).GetDataItem(organizationId);//shellService.GetCDMElectricity(organizationId);
             foreach (var item in monitorItems)
             {
                 dataItems.Add(item);
@@ -88,8 +97,16 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             #endregion
 
             #region 获得当班、当日和当月的电耗
-            IEnumerable<DataItem> consumptionItems = shellService.GetCDMElectricityConsumption(organizationId);
+            IEnumerable<DataItem> consumptionItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.ClassDayMonthElectricityConsumption).GetDataItem(organizationId);//shellService.GetCDMElectricityConsumption(organizationId);
             foreach (var item in consumptionItems)
+            {
+                dataItems.Add(item);
+            }
+            #endregion
+
+            #region 获得物料消耗
+            IEnumerable<DataItem> materialValueItems = DataItemProviderFactory.CreateDataItemProvider(DataItemProviderType.MaterialConsumption).GetDataItem(organizationId);
+            foreach (var item in materialValueItems)
             {
                 dataItems.Add(item);
             }

@@ -60,6 +60,15 @@
     <Compile Include="ProcessEnergyMonitor\DataSetInformation.cs" />
     <Compile Include="ProcessEnergyMonitor\EnergyConsumptionMonitor.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShellService.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\CDMElectricityConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\CDMElectricityProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\DataItemProviderFactory.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\DataItemProviderType.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\IDataItemProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\MaterialConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\NullProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeElectricityCoalConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePowerElectricityCoalDustProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MultiMonitorShell.cs" />
     <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />

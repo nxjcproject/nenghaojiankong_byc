@@ -18,51 +18,5 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
         {
 
         }
-
-        [WebMethod]
-        public static SceneMonitor GetRealTimeData(string organizationId, string sceneName)
-        {
-            IList<DataItem> dataItems = new List<DataItem>();
-            string factoryLevel = "zc_nxjc_byc_byf";
-            organizationId = "zc_nxjc_byc_byf_clinker01";
-            sceneName = "1#熟料线";
-
-            string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
-            string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(factoryLevel);
-
-            #region 获得dcs实时数据
-            ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
-            IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName);
-            foreach (var item in monitorItems)
-            {
-                dataItems.Add(item);
-            }
-            #endregion
-
-            MonitorShellService shellService = new MonitorShellService("", ammeterConn, "");
-
-            #region 获得电表功率数据
-            IEnumerable<DataItem> ammeterItems = shellService.GetRealtimePower(organizationId);
-            foreach (var item in ammeterItems)
-            {
-                dataItems.Add(item);
-            }
-            #endregion
-
-            #region 获得实时电能消耗数据
-            IEnumerable<DataItem> formulaValueItems = shellService.GetRealtimeEnergyConsumption(organizationId);
-            foreach (var item in formulaValueItems)
-            {
-                dataItems.Add(item);
-            }
-            #endregion
-
-            SceneMonitor result = new SceneMonitor();
-            result.Name = sceneName;
-            result.time = DateTime.Now;
-            result.DataSet = dataItems;
-
-            return result;
-        }
     }
 }

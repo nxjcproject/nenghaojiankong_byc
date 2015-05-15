@@ -29,99 +29,115 @@
 </head>
 <body id="SubMonitorBody" style="margin: 0px; padding: 0px; overflow: auto;">
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill02.png'); width: 1350px; height: 740px; overflow: hidden;">
-        <table class="mytable" style="position: absolute; top: 46px; left: 114px;">
+        <table class="mytable" style="position: absolute; top: 46px; left: 120px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>ElectricityConsumption"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Current"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Power"></span></td>
-            </tr>
-        </table>
-        <table class="mytable" style="position: absolute; top: 187px; left: -1px;">
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>ElectricityConsumption"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Current"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Power"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 318px; left: 349px;">
+        <table class="mytable" style="position: absolute; top: 189px; left: 5px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>ElectricityConsumption"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>Current"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>Power"></span></td>
-            </tr>
-        </table>
-        <table class="mytable" style="position: absolute; top: 363px; left: 534px;">
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>ElectricityConsumption"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>Current"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>Power"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 328px; left: 730px;">
+        <table class="mytable" style="position: absolute; top: 321px; left: 355px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>ElectricityConsumption"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>Current"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>Power"></span></td>
-            </tr>
-        </table>
-        <table class="mytable" style="position: absolute; top: 434px; left: 839px;">
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>ElectricityConsumption"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>Current"></span></td>
-            </tr>
-            <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>Power"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineSettledRoller>Power" class="mchart"></span></td>
             </tr>
         </table>
-        <table class="mytable" style="position: absolute; top: 105px; left: 911px;">
+        <table class="mytable" style="position: absolute; top: 367px; left: 540px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>ElectricityConsumption"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>Current"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>Power"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>rollingMachineActionRoller>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 330px; left: 736px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>powderSelectingStorehouse>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 435px; left: 845px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementMillMainMotor>Power" class="mchart"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 107px; left: 917px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>Current" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>mainExhaustFan>Power" class="mchart"></span></td>
             </tr>
         </table>
 
-        <table class="mytable" style="position: absolute; top: 552px; left: 88px;">
+        <table class="mytable" style="position: absolute; top: 553px; left: 89px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02P02PowerConsumption"></span></td>
-                <td><span id="Span6"></span></td>
-                <td><span id="Span3"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation>ElectricityQuantity" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="Span1"></span></td>
-                <td><span id="Span7"></span></td>
-                <td><span id="Span4"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cement_CementOutput>Material" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="Span2"></span></td>
-                <td><span id="Span8"></span></td>
-                <td><span id="Span5"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation>ElectricityConsumption" class="mchart"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 553px; left: 163px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityQuantity>Class" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cement_CementOutput>Class" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+            </tr>
+        </table>
+        <table class="mytable" style="position: absolute; top: 555px; left: 237px;">
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityQuantity>Day" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cement_CementOutput>Day" class="mchart"></span></td>
+            </tr>
+            <tr>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
         </table>
     </div>
