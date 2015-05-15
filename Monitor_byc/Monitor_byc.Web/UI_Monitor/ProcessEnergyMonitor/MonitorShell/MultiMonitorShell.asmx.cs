@@ -20,19 +20,107 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
     public class MultiMonitorShell1 : System.Web.Services.WebService
     {
         [WebMethod]
-        public SceneMonitor GetRealTimeData(string organizationId, string sceneName)
+        public SceneMonitor GetRealTimeData(string ids, string organizationId, string sceneName)
         {
             IList<DataItem> dataItems = new List<DataItem>();
-            string factoryLevelOrganizaiontId = GetFactoryLevelOrganizationId(organizationId);
 
-            if (organizationId != factoryLevelOrganizaiontId)
+            string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
+
+            if (organizationId.Split('_').Count() == 5)
             {
-                GetProductionLineRealTimeData(organizationId, factoryLevelOrganizaiontId, sceneName, dataItems);
+                #region 获得dcs实时数据
+                ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
+                IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName);
+                foreach (var item in monitorItems)
+                {
+                    dataItems.Add(item);
+                }
+                #endregion
             }
-            else
+
+            string[] iditems = ids.Split(',');
+            int count = iditems.Count();
+
+            Dictionary<string, IList<string>> idDictionary = new Dictionary<string, IList<string>>();
+            for (int i = 0; i < count - 1; i++)
             {
-                GetCompanyRealTimeData(organizationId, dataItems);
+                string[] itemArry = iditems[i].Split('>');
+                if (itemArry.Count() == 3)
+                {
+                    if (itemArry[2] == "Class" || itemArry[2] == "Day" || itemArry[2] == "Month")
+                    {
+                        string[] variableIdArry = itemArry[1].Split('_');
+                        string providerType = "ClassDayMonth" + variableIdArry[1];
+                        string key = itemArry[0] + "," + providerType;
+
+                        if (!idDictionary.Keys.Contains(key))
+                        {
+                            idDictionary.Add(key, new List<string>());
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                        else
+                        {
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                    }
+                    else if (itemArry[2] == "Material")
+                    {
+                        string providerType = "MaterialConsumption";
+                        string key = itemArry[0] + "," + providerType;
+
+                        if (!idDictionary.Keys.Contains(key))
+                        {
+                            idDictionary.Add(key, new List<string>());
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                        else
+                        {
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                    }
+                    else
+                    {
+                        string providerType = "Realtime" + itemArry[2];
+                        string key = itemArry[0] + "," + providerType;
+
+                        if (!idDictionary.Keys.Contains(key))
+                        {
+                            idDictionary.Add(key, new List<string>());
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                        else
+                        {
+                            idDictionary[key].Add(itemArry[1]);
+                        }
+                    }
+                }
             }
+
+            foreach (var keyitem in idDictionary.Keys)
+            {
+                string[] keyArry = keyitem.Split(',');
+                string[] mvariableids = idDictionary[keyitem].ToArray();
+
+                if (Enum.IsDefined(typeof(DataItemProviderType), keyArry[1]))
+                {
+                    IEnumerable<DataItem> items = DataItemProviderFactory.CreateDataItemProvider((DataItemProviderType)Enum.Parse(typeof(DataItemProviderType), keyArry[1])).GetDataItem(keyArry[0], mvariableids);
+                    foreach (var item in items)
+                    {
+                        dataItems.Add(item);
+                    }
+                }
+            }
+            
+
+
+            //if (organizationId != factoryLevelOrganizaiontId)
+            //{
+            //    GetProductionLineRealTimeData(organizationId, factoryLevelOrganizaiontId, sceneName, dataItems);
+            //}
+            //else
+            //{
+            //    GetCompanyRealTimeData(organizationId, dataItems);
+            //}
 
             SceneMonitor result = new SceneMonitor();
             result.Name = sceneName;
@@ -42,7 +130,7 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
             return result;
         }
 
-        private void GetProductionLineRealTimeData(string organizationId, string factoryLevelOrganizaiontId, string sceneName, IList<DataItem> dataItems)
+        /*private void GetProductionLineRealTimeData(string organizationId, string factoryLevelOrganizaiontId, string sceneName, IList<DataItem> dataItems)
         {
             string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
             string ammeterConn = ConnectionStringFactory.GetAmmeterConnectionString(factoryLevelOrganizaiontId);
@@ -111,19 +199,19 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
                 dataItems.Add(item);
             }
             #endregion
-        }
+        }*/
 
-        private string GetFactoryLevelOrganizationId(string organizationId)
-        {
-            string[] subString = organizationId.Split('_');
-            if (subString.Count() == 5)
-            {
-                return subString[0] + "_" + subString[1] + "_" + subString[2] + "_" + subString[3];
-            }
-            else
-            {
-                return organizationId;
-            }
-        }
+        //private string GetFactoryLevelOrganizationId(string organizationId)
+        //{
+        //    string[] subString = organizationId.Split('_');
+        //    if (subString.Count() == 5)
+        //    {
+        //        return subString[0] + "_" + subString[1] + "_" + subString[2] + "_" + subString[3];
+        //    }
+        //    else
+        //    {
+        //        return organizationId;
+        //    }
+        //}
     }
 }

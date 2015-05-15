@@ -12,26 +12,43 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
         public static IDataItemProvider CreateDataItemProvider(DataItemProviderType type)
         {
             string connString = ConnectionStringFactory.NXJCConnectionString;
-            IDataItemProvider result = new NullProvider();
-            if (type == DataItemProviderType.ClassDayMonthElectricity)
-            {        
-                result = new CDMElectricityProvider(connString);
-            }
-            else if (type == DataItemProviderType.RealtimePowerElectricityCoalDust)
+            IDataItemProvider result;
+
+            if (type == DataItemProviderType.ClassDayMonthElectricityQuantity)
             {
-                result = new RealtimePowerElectricityCoalDustProvider(connString);
-            }
-            else if (type == DataItemProviderType.RealtimeElectricityCoalConsumption)
-            {
-                result = new RealtimeElectricityCoalConsumptionProvider(connString);
+                result = new CDMElectricityQuantityProvider(connString);
             }
             else if (type == DataItemProviderType.ClassDayMonthElectricityConsumption)
             {
                 result = new CDMElectricityConsumptionProvider(connString);
             }
+            else if (type == DataItemProviderType.RealtimePower)
+            {
+                result = new RealtimePowerProvider(connString);
+            }
+            else if (type == DataItemProviderType.RealtimeElectricityQuantity)
+            {
+                result = new RealtimeElectricityQuantityProvider(connString);
+            }
+            else if (type == DataItemProviderType.RealtimePulverizedCoalInput)
+            {
+                result = new RealtimePulverizedCoalInputProvider(connString);
+            }
+            else if (type == DataItemProviderType.RealtimeElectricityConsumption)
+            {
+                result = new RealtimeElectricityConsumptionProvider(connString);
+            }
+            else if (type == DataItemProviderType.RealtimeCoalConsumption)
+            {
+                result = new RealtimeCoalConsumptionProvider(connString);
+            }
             else if (type == DataItemProviderType.MaterialConsumption)
             {
                 result = new MaterialConsumptionProvider(connString);
+            }
+            else
+            {
+                result = new NullProvider();
             }
 
             return result;

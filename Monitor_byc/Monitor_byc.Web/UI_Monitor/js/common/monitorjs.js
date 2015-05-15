@@ -2,16 +2,22 @@
     InitializePage();
 });
 var publicData = {
+    ids:"",
     realTimer: {},
     pollingIntervals: 10000
 };
 
 function InitializePage() {
+    var spans = document.getElementsByTagName("span");
+    for (var i = 0; i < spans.length; i++) {
+        publicData.ids = publicData.ids + spans[i].id + ",";
+    }
     setTimeout(getLatestData, 1000);   
 }
 function getLatestData() {
     //var m_MsgData;
     var dataToServer = {
+        ids:publicData.ids,
         organizationId: publicData.organizationId,
         sceneName: publicData.sceneName
     };

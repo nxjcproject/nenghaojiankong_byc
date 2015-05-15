@@ -23,35 +23,42 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 
             string materialDetailString = @"select A.OrganizationID,B.VariableId,B.TagTableName,B.Formula 
                                          from [NXJC].[dbo].[tz_Material] as A,[NXJC].[dbo].[material_MaterialDetail] as B
-                                         where A.KeyID=B.KeyID and A.OrganizationID like @organizationId";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
-            DataTable materialDetailTable = _companyFactory.Query(materialDetailString, parameters);
+                                         where A.KeyID=B.KeyID and A.OrganizationID=@organizationId";
+            StringBuilder materialStringBase = new StringBuilder(materialDetailString);
+            IList<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@organizationId", organizationId));
+            ParametersHelper.AddParamsCondition(materialStringBase, parameters, variableIds);
+            DataTable materialDetailTable = _companyFactory.Query(materialStringBase.ToString(), parameters.ToArray());
 
             StringBuilder baseString = new StringBuilder("select top 1");
             string baseTableName = "";
             IList<string> variables = new List<string>();
-            foreach (DataRow dr in materialDetailTable.Rows)
+            if (materialDetailTable.Rows.Count > 0)
             {
-                baseString.Append(string.Format(" {0} as {1},", dr["Formula"].ToString().Trim(), dr["VariableId"].ToString().Trim()));
-                variables.Add(dr["VariableId"].ToString().Trim());
-                if (baseTableName == "")
+                foreach (DataRow dr in materialDetailTable.Rows)
                 {
-                    baseTableName = dr["TagTableName"].ToString().Trim();
+                    baseString.Append(string.Format(" {0} as {1},", dr["Formula"].ToString().Trim(), dr["VariableId"].ToString().Trim()));
+                    variables.Add(dr["VariableId"].ToString().Trim());
+                    if (baseTableName == "")
+                    {
+                        baseTableName = dr["TagTableName"].ToString().Trim();
+                    }
+                }
+                baseString.Remove(baseString.Length - 1, 1);
+                baseString.Append(" from ").Append("[zc_nxjc_byc_byf].[dbo]." + baseTableName).Append(" order by vDate desc");
+                DataTable resultDt = _companyFactory.Query(baseString.ToString());
+
+                foreach (var item in variables)
+                {
+                    DataItem dataItem = new DataItem
+                    {
+                        ID = organizationId + ">" + item + ">Material",
+                        Value = resultDt.Rows[0][item].ToString().Trim()
+                    };
+                    results.Add(dataItem);
                 }
             }
-            baseString.Remove(baseString.Length - 1, 1);
-            baseString.Append(" from ").Append("[zc_nxjc_byc_byf].[dbo]." + baseTableName).Append(" order by vDate desc");
-            DataTable resultDt = _companyFactory.Query(baseString.ToString());
 
-            foreach (var item in variables)
-            {
-                DataItem dataItem = new DataItem
-                {
-                    ID = organizationId + ">" + item + ">Material",
-                    Value = resultDt.Rows[0][item].ToString().Trim()
-                };
-                results.Add(dataItem);
-            }
             return results;
         }
     }

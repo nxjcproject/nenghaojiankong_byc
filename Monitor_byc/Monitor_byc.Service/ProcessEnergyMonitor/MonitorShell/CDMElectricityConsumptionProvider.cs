@@ -28,18 +28,24 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 	                            where C.BalanceId=D.KeyId and TimeStamp>=CONVERT(varchar(8),GETDATE(),20)+'01'
 	                            group by C.OrganizationID, VariableId) AS B
                                 WHERE A.VariableId=B.VariableId and A.OrganizationID=B.OrganizationID) AS E
-                                where E.OrganizationID like @organizationId";
-            SqlParameter[] sourceparameters = { new SqlParameter("@organizationId", organizationId + "%") };
-            DataTable sourceDt = _nxjcFactory.Query(sqlSource, sourceparameters);
+                                where E.OrganizationID=@organizationId";
+            StringBuilder sqlSourceBase = new StringBuilder(sqlSource);
+            IList<SqlParameter> sourceparameters = new List<SqlParameter>();
+            sourceparameters.Add(new SqlParameter("@organizationId", organizationId));
+            ParametersHelper.AddParamsCondition(sqlSourceBase, sourceparameters, variableIds);
+            DataTable sourceDt = _nxjcFactory.Query(sqlSourceBase.ToString(), sourceparameters.ToArray());
 
             string sqlTemplate = @"select * from (SELECT A.OrganizationID,B.VariableID,B.ValueFormula
                                 FROM system_Organization AS A,balance_Energy_Template AS B
                                 WHERE A.Type=B.ProductionLineType
                                 AND B.ValueType='ElectricityConsumption'
                                 AND B.Enabled='True') as C 
-                                where C.OrganizationID like @organizationId";
-            SqlParameter[] templateparameters = { new SqlParameter("@organizationId", organizationId + "%") };
-            DataTable templateDt = _nxjcFactory.Query(sqlTemplate, templateparameters);
+                                where C.OrganizationID=@organizationId";
+            StringBuilder sqlTemplateBase = new StringBuilder(sqlTemplate);
+            IList<SqlParameter> templateparameters = new List<SqlParameter>();
+            templateparameters.Add(new SqlParameter("@organizationId", organizationId));
+            ParametersHelper.AddParamsCondition(sqlTemplateBase, templateparameters, variableIds);
+            DataTable templateDt = _nxjcFactory.Query(sqlTemplateBase.ToString(), templateparameters.ToArray());
 
             string[] columns = { "CumulantClass", "CumulantDay", "CumulantMonth" };
 

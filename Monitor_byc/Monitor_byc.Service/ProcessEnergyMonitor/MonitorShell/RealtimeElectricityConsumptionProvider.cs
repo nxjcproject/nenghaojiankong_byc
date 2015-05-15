@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 {
-    public class RealtimeElectricityCoalConsumptionProvider : IDataItemProvider
+    public class RealtimeElectricityConsumptionProvider : IDataItemProvider
     {
         private ISqlServerDataFactory _companyFactory;
-        public RealtimeElectricityCoalConsumptionProvider(string companyconnString)
+        public RealtimeElectricityConsumptionProvider(string companyconnString)
         {
             _companyFactory = new SqlServerDataFactory(companyconnString);
         }
@@ -21,10 +21,15 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
         {
             IList<DataItem> results = new List<DataItem>();
 
-            string queryString = @"select OrganizationID,VariableID,FormulaValue,CoalDustConsumption,DenominatorValue from [zc_nxjc_byc_byf].[dbo].[RealtimeFormulaValue] 
-                                where OrganizationID like @organizationId";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
-            DataTable dt = _companyFactory.Query(queryString, parameters);
+            string queryString = @"select OrganizationID,VariableID,FormulaValue,DenominatorValue from [zc_nxjc_byc_byf].[dbo].[RealtimeFormulaValue] 
+                                where OrganizationID=@organizationId";
+            StringBuilder baseString = new StringBuilder(queryString);
+            IList<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@organizationId", organizationId));
+
+            ParametersHelper.AddParamsCondition(baseString, parameters, variableIds);
+
+            DataTable dt = _companyFactory.Query(baseString.ToString(), parameters.ToArray());
 
             foreach (DataRow item in dt.Rows)
             {
@@ -36,8 +41,6 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
                     {
                         decimal formulaValue = 0;
                         decimal.TryParse(item["FormulaValue"].ToString().Trim(), out formulaValue);
-                        decimal coalDustConsumption = 0;
-                        decimal.TryParse(item["CoalDustConsumption"].ToString().Trim(), out coalDustConsumption);
 
                         DataItem itemElectricityConsumption = new DataItem
                         {
@@ -45,12 +48,6 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
                             Value = (formulaValue / denominatorValue).ToString()
                         };
                         results.Add(itemElectricityConsumption);
-                        DataItem itemCoalConsumption = new DataItem
-                        {
-                            ID = item["OrganizationID"].ToString().Trim() + ">" + item["VariableID"].ToString().Trim() + ">" + "CoalConsumption",
-                            Value = (coalDustConsumption / denominatorValue).ToString()
-                        };
-                        results.Add(itemCoalConsumption);
                     }
                 }
             }

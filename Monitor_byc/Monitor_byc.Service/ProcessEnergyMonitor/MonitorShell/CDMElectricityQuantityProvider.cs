@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 {
-    public class CDMElectricityProvider : IDataItemProvider
+    public class CDMElectricityQuantityProvider : IDataItemProvider
     {
         private ISqlServerDataFactory _nxjcFactory;
 
-        public CDMElectricityProvider(string nxjcconnString)
+        public CDMElectricityQuantityProvider(string nxjcconnString)
         {
             _nxjcFactory = new SqlServerDataFactory(nxjcconnString);
         }
@@ -28,9 +28,12 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 	                            where C.BalanceId=D.KeyId and TimeStamp>=CONVERT(varchar(8),GETDATE(),20)+'01'
 	                            group by C.OrganizationID, VariableId) AS B
                                 WHERE A.VariableId=B.VariableId and A.OrganizationID=B.OrganizationID) AS E
-                                where E.OrganizationID like @organizationId";
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId + "%") };
-            DataTable dt = _nxjcFactory.Query(queryString, parameters);
+                                where E.OrganizationID=@organizationId";
+            StringBuilder baseString = new StringBuilder(queryString);
+            IList<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(new SqlParameter("@organizationId", organizationId));
+            ParametersHelper.AddParamsCondition(baseString, parameters, variableIds);
+            DataTable dt = _nxjcFactory.Query(baseString.ToString(), parameters.ToArray());
 
             foreach (DataRow dr in dt.Rows)
             {
