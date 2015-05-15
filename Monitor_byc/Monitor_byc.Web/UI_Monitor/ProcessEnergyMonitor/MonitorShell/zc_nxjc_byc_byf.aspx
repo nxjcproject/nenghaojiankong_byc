@@ -10,29 +10,37 @@
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css" />
 
+    <link rel="stylesheet" type="text/css" href="/UI_Monitor/css/common/mymonitor.css" />
+
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/common/jquery.utility.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
-    <script src="../../js/common/monitorjs.js"></script>
+    <script src="/UI_Monitor/js/common/monitorjs.js"></script>
+    <script src="/UI_Monitor/js/common/chartjs.js"></script>
+    <script src="/UI_Monitor/js/common/SubMonitorAdapter.js"></script>
+    <script>
+        publicData.organizationId = "zc_nxjc_byc_byf";
+        publicData.sceneName = "";
+    </script>
     <title></title>
 </head>
-<body>
-    <div style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf.png'); width: 1287px; height: 705px; overflow: hidden;">
+<body id ="SubMonitorBody" style ="margin:0px; padding:0px;overflow: auto;">
+    <div id ="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf.png'); width: 1287px; height: 705px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 85px; left: 25px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption">ssssss</span></td>
-                <td><span id="Span6">ssss</span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01P01PowerConsumption"></span></td>
+                <td><span id="Span6"></span></td>
             </tr>
             <tr>
-                <td><span id="Span1">1111</span></td>
-                <td><span id="Span7">2222</span></td>
+                <td><span id="Span1"></span></td>
+                <td><span id="Span7"></span></td>
             </tr>
             <tr>
-                <td><span id="Span2">3333</span></td>
-                <td><span id="Span8">4444</span></td>
+                <td><span id="Span2"></span></td>
+                <td><span id="Span8"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 306px; left: 497px;">
@@ -133,8 +141,8 @@
                 <td><span id="Span10"></span></td>
             </tr>
             <tr>
-                <td><span id="Span5">5</span></td>
-                <td><span id="Span11">6666</span></td>
+                <td><span id="Span5"></span></td>
+                <td><span id="Span11"></span></td>
             </tr>
         </table>
     </div>

@@ -1624,11 +1624,14 @@
     <Content Include="UI_Monitor\images\page\zc_zcshn_zhuzhouc_zhuzhouf_clinker01.jpg" />
     <Content Include="UI_Monitor\js\common\alarm.js" />
     <Content Include="UI_Monitor\js\common\blink.js" />
+    <Content Include="UI_Monitor\js\common\chartjs.js" />
     <Content Include="UI_Monitor\js\common\monitorjs.js" />
     <Content Include="UI_Monitor\js\common\MonitorShell.js" />
+    <Content Include="UI_Monitor\js\common\SubMonitorAdapter.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_monitorView.js" />
     <Content Include="UI_Monitor\js\common\trendlineAnalysis_template.js" />
     <Content Include="UI_Monitor\js\common\trendlineRenderer.js" />
+    <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.asmx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\zc_nxjc_byc_byf.aspx" />
     <Content Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\zc_nxjc_byc_byf_cementmill01.aspx" />
@@ -1642,6 +1645,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.asmx.cs">
+      <DependentUpon>MultiMonitorShell.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI_Monitor\ProcessEnergyMonitor\MonitorShell\MultiMonitorShell.aspx.cs">
       <DependentUpon>MultiMonitorShell.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

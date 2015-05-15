@@ -1,19 +1,5 @@
-﻿var pageViewName = '';
-var pageOrganizationId = '';
-$(function () {
-    pageViewName = $('#viewNameContainerId').val();
-    pageOrganizationId = $('#organizationIdContainerId').val();
-    
+﻿$(function () {
     InitializePage();
-    if (pageViewName != 'saa') {
-        $(".selectable").attr('data-organizationid', pageOrganizationId);
-    };
-    setTimeout(function () {
-        if (pageViewName != 'saa') {
-            $("#titleId").text(pageViewName + "生产能耗监控总貌图");
-            var aa = $("#titleId");
-        }
-    }, 1000);
 });
 var publicData = {
     realTimer: {},
@@ -21,17 +7,15 @@ var publicData = {
 };
 
 function InitializePage() {
-    setTimeout(getLatestData, 1000);
-
-    
+    setTimeout(getLatestData, 1000);   
 }
 function getLatestData() {
     //var m_MsgData;
     var dataToServer = {
-        organizationId: "",
-        sceneName: ""
+        organizationId: publicData.organizationId,
+        sceneName: publicData.sceneName
     };
-    var urlString = "zc_nxjc_byc_byf_cementmill01.aspx/GetRealTimeData";
+    var urlString = "MultiMonitorShell.asmx/GetRealTimeData";
     $.ajax({
         type: "POST",
         url: urlString,
@@ -72,7 +56,7 @@ function displayDataItem(dataSets) {
         //if (element.attr("tagName") == "span")
             element.html(value.toFixed(0));
         //else
-            element.val(value.toFixed(0));
+            //element.val(value.toFixed(0));
     });
 }
 

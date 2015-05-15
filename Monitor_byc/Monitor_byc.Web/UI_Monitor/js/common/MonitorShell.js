@@ -36,42 +36,42 @@ function InitializeIframe() {
     if (BrowserName == "IE") {
         if (document.compatMode == "CSS1Compat") {//模式匹配 解决ie8下兼容模式
         }
-        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 4);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 5);
+        $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 8);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 9);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
-                $('#ProcessMontor').css('width', width - 4);
-                $('#ProcessMontor').css('height', height - 5);
+                $('#ProcessMontor').css('width', width - 8);
+                $('#ProcessMontor').css('height', height - 9);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 4, height - 5);
+                    SetAutoMonitorZoom(width - 8, height - 9);
                 }
             }
         });
 
     } else if (BrowserName == "FF") {
         $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 6);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 6);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 10);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
                 $('#ProcessMontor').css('width', width - 6);
-                $('#ProcessMontor').css('height', height - 6);
+                $('#ProcessMontor').css('height', height - 10);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 6, height - 6);
+                    SetAutoMonitorZoom(width - 6, height - 10);
                 }
             }
         });
     } else {
         $('#ProcessMontor').css('width', $('#MonitorLayout').layout('panel', 'center').panel('options').width - 19);
-        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 5);
+        $('#ProcessMontor').css('height', $('#MonitorLayout').layout('panel', 'center').panel('options').height - 9);
 
         $('#MonitorLayout').layout('panel', 'center').panel({
             onResize: function (width, height) {
                 $('#ProcessMontor').css('width', width - 19);
-                $('#ProcessMontor').css('height', height - 5);
+                $('#ProcessMontor').css('height', height - 9);
                 if (AutoResizeFlag == true) {               //子页面自动调整大小
-                    SetAutoMonitorZoom(width - 19, height - 5);
+                    SetAutoMonitorZoom(width - 19, height - 9);
                 }
             }
         });
@@ -165,61 +165,73 @@ function SetDisplayPageButton() {
     //var OrganizationType = "";
     if (BrowserName != "IE") {
         if (OrganizationType == "熟料") {
-            var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" style = "height:24px; padding-right:3px;" target="ProcessMontor"></a>');
+            var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton01.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
-                text: '生料制备'
+                text: '生料制备',
+                width:120,
+                height:22
             });
-            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" style = "height:24px; padding-right:3px;" target="ProcessMontor"></a>');
+            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton02.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
-                text: '熟料制备'
+                text: '熟料制备',
+                width:120,
+                height:22
             });
-            $('#DisplayPageButtons').append('<td></td>').append(m_DisplayButton01);
-            $('#DisplayPageButtons').append('<td></td>').append(m_DisplayButton02);
+            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px;"></td>');
+            $('#DisplayPageButtons').append('<td id= "DisplayButton02Td" style = "width:125px;"></td>');
+            $('#DisplayButton01Td').append(m_DisplayButton01);
+            $('#DisplayButton02Td').append(m_DisplayButton02);
 
         }
         else {
-            var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton" data-options="iconCls:\'icon-search\',toggle:false" style="height: 22px;">' + OrganizationName + '</a>');
+            var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
             m_DisplayButton.linkbutton({
                 iconCls: 'icon-search',
-                plain: false
+                plain: false,
+                width:120,
+                height:22
             });
-            $('#DisplayPageButtons').append('<td></td>').append(m_DisplayButton);
+            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;"></td>');
+            $('#DisplayButtonTd').append(m_DisplayButton);
         }
     }
     else {
         if (OrganizationType == "熟料") {
-            var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" style = "height:24px; padding-right:3px;" target="ProcessMontor"></a>');
+            var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton01.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
-                text: '生料制备'
+                text: '生料制备',
+                width:120,
+                height:22
             });
-            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" style = "height:24px; padding-right:3px;" target="ProcessMontor"></a>');
+            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton02.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
-                text: '熟料制备'
-            });
-            var m_Td = $('<td></td>');
-
-            m_Td.append(m_DisplayButton01);
-            m_Td.append(m_DisplayButton02);
-            $('#DisplayPageButtons').append(m_Td);
-
+                text: '熟料制备',
+                width:120,
+                height:22
+            });   
+            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButton02Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayButton01Td').append(m_DisplayButton01);
+            $('#DisplayButton02Td').append(m_DisplayButton02);
         }
         else {
-            var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton" data-options="iconCls:\'icon-search\',toggle:false" style="height: 22px;">' + OrganizationName + '</a>');
+            var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
             m_DisplayButton.linkbutton({
                 iconCls: 'icon-search',
-                plain: false
+                plain: false,
+                width:120,
+                height:22
             });
-            var m_Td = $('<td></td>');
-            m_Td.append(m_DisplayButton);
-            $('#DisplayPageButtons').append(m_Td);
+            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayButtonTd').append(m_DisplayButton);       
         }
     }
 }

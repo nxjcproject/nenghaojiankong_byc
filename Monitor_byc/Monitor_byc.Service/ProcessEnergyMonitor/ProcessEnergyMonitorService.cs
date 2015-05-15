@@ -190,7 +190,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
                 {
                     result.Add(new DataItem
                     {
-                        ID = item,
+                        ID = organizationId + ">" + item + ">Current",
                         Value = table.Rows[0][item].ToString().Trim()
                     });
                 }

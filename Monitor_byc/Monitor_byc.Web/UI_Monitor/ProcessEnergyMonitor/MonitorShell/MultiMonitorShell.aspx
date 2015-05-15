@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
     <link rel="stylesheet" type="text/css" href="/css/common/NormalPage.css" />
-    <link href="../../../css/common/Monitor.css" rel="stylesheet" />
 
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/common/jquery.utility.js" charset="utf-8"></script>
@@ -18,7 +17,7 @@
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
-    <script type="text/javascript" src="../../js/common/MonitorShell.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/UI_Monitor/js/common/MonitorShell.js" charset="utf-8"></script>
 </head>
 <body>
     <div id="MonitorLayout" class="easyui-layout" data-options="border:false,fit:true">
