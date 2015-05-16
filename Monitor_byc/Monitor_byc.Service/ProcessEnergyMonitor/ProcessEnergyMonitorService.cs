@@ -30,7 +30,8 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor
             IList<DataSetInformation> results = new List<DataSetInformation>();
             Query query = new Query("EnergyConsumptionContrast");
             query.AddCriterion("ViewName", "viewName", viewName, CriteriaOperator.Equal);
-            query.AddCriterion("OrganizationID", "organizationId", organizationId, CriteriaOperator.Equal);
+            //query.AddCriterion("OrganizationID", "organizationId", organizationId, CriteriaOperator.Equal);
+            query.AddCriterion("Enabled", "enabled", "True", CriteriaOperator.Equal);
             DataTable table = _dataFactory.Query(query);
             foreach (DataRow item in table.Rows)
             {

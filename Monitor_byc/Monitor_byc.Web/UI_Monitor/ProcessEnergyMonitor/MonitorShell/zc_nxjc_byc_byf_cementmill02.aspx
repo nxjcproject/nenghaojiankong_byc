@@ -31,24 +31,24 @@
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_cementmill02.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 46px; left: 120px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>gypsumCrusher>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>gypsumCrusher>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 189px; left: 5px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 321px; left: 355px;">

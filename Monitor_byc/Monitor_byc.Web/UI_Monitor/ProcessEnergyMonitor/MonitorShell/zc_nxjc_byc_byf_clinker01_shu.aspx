@@ -31,24 +31,24 @@
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_shu.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 76px; left: 36px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist1>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist1>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist1>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist1>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist1>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist1>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 144px; left: 37px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist2>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist2>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist2>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist2>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>kilnHoist2>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerHoist2>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 230px; left: 742px;">
@@ -122,7 +122,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>coalMilRootsBlower2>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker0>coalMilRootsBlower2>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>coalMilRootsBlower2>Current" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>coalMilRootsBlower2>Power" class="mchart"></span></td>

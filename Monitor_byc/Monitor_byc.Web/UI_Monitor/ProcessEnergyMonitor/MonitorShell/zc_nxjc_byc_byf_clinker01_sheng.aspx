@@ -31,57 +31,57 @@
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf_clinker01_sheng.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 45px; left: 19px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher1>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneCrusher1>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher1>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneCrusher1>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher1>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneCrusher1>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 138px; left: 19px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneMineBelt>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneMineBelt>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneMineBelt>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 217px; left: 19px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limePilePeclaimer>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStacker>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limePilePeclaimer>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStacker>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limePilePeclaimer>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStacker>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 316px; left: 20px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBelt>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBelt>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBeltMachine>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBelt>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneStorageBeltMachine>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 41px; left: 193px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher2>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneCrusher2>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher2>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>limestoneCrusher2>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>crusher2>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>limestoneCrusher2>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 141px; left: 406px;">

@@ -34,7 +34,7 @@
                 <td><span id="zc_nxjc_byc_byf>gypsumCrusher>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>gypsumCrusher>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>gypsumCrusher>Current" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf>gypsumCrusher>Power" class="mchart"></span></td>
@@ -42,13 +42,13 @@
         </table>
         <table class="mytable" style="position: absolute; top: 189px; left: 5px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerStorageBeltMachine>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerStorageBeltMachine>Power" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 320px; left: 355px;">
@@ -100,10 +100,10 @@
                 <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>Current" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFan>Current" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>Power" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFan>Power" class="mchart"></span></td>
             </tr>
         </table>
 
