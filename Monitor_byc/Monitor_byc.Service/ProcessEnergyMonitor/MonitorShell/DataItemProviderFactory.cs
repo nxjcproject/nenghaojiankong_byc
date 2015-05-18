@@ -42,7 +42,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
             {
                 result = new RealtimeCoalConsumptionProvider(connString);
             }
-            else if (type == DataItemProviderType.MaterialConsumption)
+            else if(type == DataItemProviderType.MaterialConsumption)
             {
                 result = new MaterialConsumptionProvider(connString);
             }

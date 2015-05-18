@@ -31,24 +31,24 @@
     <div id="SubMonitorLayout" style="position: relative; background-image: url('../../images/page/zc_nxjc_byc_byf.png'); width: 1350px; height: 740px; overflow: hidden;">
         <table class="mytable" style="position: absolute; top: 90px; left: 27px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 91px; left: 92px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawBatchHomogenize_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsHomogenize_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 156px; left: 204px;">
@@ -86,24 +86,24 @@
         </table>
         <table class="mytable" style="position: absolute; top: 59px; left: 385px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 58px; left: 451px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>wasteGasTreatment_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>kilnSystem_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 410px; left: 26px;">
@@ -141,47 +141,47 @@
         </table>
         <table class="mytable" style="position: absolute; top: 56px; left: 976px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 56px; left: 1041px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>hybridMaterialsPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>hybridMaterialsPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
 
         <table class="mytable" style="position: absolute; top: 104px; left: 721px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 104px; left: 785px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerTransport_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>clinkerTransport_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 223px; left: 655px; right: 566px;">
@@ -223,26 +223,27 @@
                 <td><span id="zc_nxjc_byc_byf>auxiliaryProduction_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
+        <%--水泥粉磨 --%>
         <table class="mytable" style="position: absolute; top: 167px; left: 1146px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 168px; left: 1209px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementGrind_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 205px; left: 1056px; height: 50px;">
@@ -269,24 +270,24 @@
         </table>
         <table class="mytable" style="position: absolute; top: 391px; left: 885px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityQuantity>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityQuantity>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityQuantity>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 391px; left: 950px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill02>cementPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill02>cementGrind_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 530px; left: 813px;">
@@ -391,7 +392,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 161px;">
@@ -402,7 +403,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 233px;">
@@ -413,7 +414,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
     </div>
