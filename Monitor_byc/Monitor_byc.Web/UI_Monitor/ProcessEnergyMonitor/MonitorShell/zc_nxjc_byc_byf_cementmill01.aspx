@@ -97,7 +97,7 @@
         </table>
         <table class="mytable" style="position: absolute; top: 107px; left: 917px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFanC>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFan>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_cementmill01>mainExhaustFan>Current" class="mchart"></span></td>

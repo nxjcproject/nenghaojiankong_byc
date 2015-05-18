@@ -8,14 +8,62 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 {
     public enum DataItemProviderType
     {
+        /*
+         * 熟料综合电耗（熟料综合电耗=所有熟料电量之和/所有熟料产量之和）
+         *水泥综合电耗(水泥综合电耗=(所有熟料电量之和+所有水泥产线电量之和)/水泥总产量)
+         */
+        //**************************************************
+        /// <summary>
+        /// 综合本班、当日、当月电耗
+        /// </summary>
+        SumClassDayMonthElectricityConsumption,
+        /// <summary>
+        /// 综合本班、当日、当月煤耗
+        /// </summary>
+        SumClassDayMonthCoalConsumption,
+        //**************************************************
+
+
+        /*
+         * 如果为分厂级别的工序电耗（各产线工序电量之和/各产线工序产量之和）
+         */
+        //***************************************************
+        /// <summary>
+        /// 本班、当日、当月电量
+        /// </summary>
+        SumProcessClassDayMonthElectricityQuantity,
+        /// <summary>
+        /// 本班、当日、当月物料
+        /// </summary>
+        SumProcessClassDayMonthMaterial,
+        /// <summary>
+        /// 本班、当日、当月电耗
+        /// </summary>
+        SumProcessClassDayMonthElectricityConsumption,
+        /// <summary>
+        /// 本班、当日、当月煤耗
+        /// </summary>
+        SumProcessClassDayMonthCoalConsumption,
+        //*****************************************************
+
+
+
         /// <summary>
         /// 本班、当日、当月电量
         /// </summary>
         ClassDayMonthElectricityQuantity,
         /// <summary>
+        /// 本班、当日、当月物料
+        /// </summary>
+        ClassDayMonthMaterial,
+        /// <summary>
         /// 本班、当日、当月电耗
         /// </summary>
         ClassDayMonthElectricityConsumption,
+        /// <summary>
+        /// 本班、当日、当月煤耗
+        /// </summary>
+        ClassDayMonthCoalConsumption,
         /// <summary>
         /// 实时功率
         /// </summary>

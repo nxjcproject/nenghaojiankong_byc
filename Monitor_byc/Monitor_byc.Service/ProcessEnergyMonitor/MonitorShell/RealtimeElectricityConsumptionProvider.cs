@@ -37,18 +37,18 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
                 {
                     decimal denominatorValue = 0;
                     decimal.TryParse(item["DenominatorValue"].ToString().Trim(), out denominatorValue);
-                    if (denominatorValue != 0)
-                    {
+                    //if (denominatorValue != 0)
+                    //{
                         decimal formulaValue = 0;
                         decimal.TryParse(item["FormulaValue"].ToString().Trim(), out formulaValue);
 
                         DataItem itemElectricityConsumption = new DataItem
                         {
                             ID = item["OrganizationID"].ToString().Trim() + ">" + item["VariableID"].ToString().Trim() + ">" + "ElectricityConsumption",
-                            Value = (formulaValue / denominatorValue).ToString()
+                            Value = denominatorValue==0?"0":(formulaValue / denominatorValue).ToString()//产量为0时将电耗致为0
                         };
                         results.Add(itemElectricityConsumption);
-                    }
+                    //}
                 }
             }
 

@@ -189,27 +189,27 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerElectricityGeneration_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="Span26"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerElectricityGeneration_ElectricityConsumption>Class"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cogeneration01>electricityOutput_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>electricityOwnDemand_ElectricityQuantity>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cogeneration01>electricityOwnDemand_ElectricityQuantity>Class" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 223px; left: 717px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerElectricityGeneration_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerElectricityGeneration_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="Span33"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerElectricityGeneration_ElectricityConsumption>Day"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>electricityOutput_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cogeneration01>electricityOutput_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>electricityOwnDemand_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_cogeneration01>electricityOwnDemand_ElectricityQuantity>Day" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 56px; left: 1202px;">
@@ -365,56 +365,57 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>SumMonth" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 643px; left: 424px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_ElectricityConsumption>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinker_ElectricityConsumption>SumMonth" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_CoalConsumption>CoalConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinker_CoalConsumption>SumMonth" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 644px; left: 496px;">
             <tr>
-                <td><span id="zc_nxjc_byc>cementmill_ElectricityConsumption>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>SumMonth" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc>cementmill_CoalConsumption>CoalConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementmill_CoalConsumption>SumMonth" class="mchart"></span></td>
             </tr>
         </table>
+        <%--工序电耗（所有产线的该工序电量之和除以所有产线该工序产量之和） --%>
         <table class="mytable" style="position: absolute; top: 617px; left: 88px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_cementmill01>cementPreparation_ElectricityConsumption>Class" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 161px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>Day" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 233px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>rawMaterialsPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>Month" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
             </tr>
         </table>
     </div>

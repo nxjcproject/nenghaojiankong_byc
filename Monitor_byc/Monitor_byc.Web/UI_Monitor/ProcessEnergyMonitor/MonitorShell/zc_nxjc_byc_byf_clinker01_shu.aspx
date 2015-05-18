@@ -348,13 +348,13 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinker_ClinkerOutput>Material" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>ElectricityConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning>ElectricityConsumption" class="mchart"></span></td>
             </tr>
             <tr>
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinker_PulverizedCoalInput>Material" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinker_CoalConsumption>CoalConsumption" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinker>CoalConsumption" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 622px; left: 160px;">

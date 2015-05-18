@@ -13,15 +13,36 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
         {
             string connString = ConnectionStringFactory.NXJCConnectionString;
             IDataItemProvider result;
-
-            if (type == DataItemProviderType.ClassDayMonthElectricityQuantity)
+            //本班、当日、当月电量，产量数据来源相同（来自表RealtimeIncrementCumulant）可以用统一个方法
+            if (type == DataItemProviderType.ClassDayMonthElectricityQuantity||type==DataItemProviderType.ClassDayMonthMaterial)
             {
                 result = new CDMElectricityQuantityProvider(connString);
             }
-            else if (type == DataItemProviderType.ClassDayMonthElectricityConsumption)
+            //电耗煤耗用一个方法
+            else if (type == DataItemProviderType.ClassDayMonthElectricityConsumption||type==DataItemProviderType.ClassDayMonthCoalConsumption)
             {
                 result = new CDMElectricityConsumptionProvider(connString);
             }
+            //分厂级工序的本班、当日、当月电量，产量数据来源相同（来自表RealtimeIncrementCumulant）可以用统一个方法
+            else if (type == DataItemProviderType.SumProcessClassDayMonthElectricityQuantity || type == DataItemProviderType.SumProcessClassDayMonthMaterial)
+            {
+                result = new SumProcessCDMElectricityQuantityProvider(connString);
+            }
+            //分厂级工序的电耗煤耗用一个方法
+            else if (type == DataItemProviderType.SumProcessClassDayMonthElectricityConsumption || type == DataItemProviderType.SumProcessClassDayMonthCoalConsumption)
+            {
+                result = new SumProcessCDMElectricityConsumptionProvider(connString);
+            }
+            //综合电量产量
+            //else if (type == DataItemProviderType.SumClassDayMonthElectricityQuantity || type == DataItemProviderType.SumClassDayMonthMaterial)
+            //{
+            //    result = new SumCDMElectricityQuantityProvider(connString);
+            //}
+            //综合电耗综合煤耗
+            else if (type == DataItemProviderType.SumClassDayMonthElectricityConsumption || type == DataItemProviderType.SumClassDayMonthCoalConsumption)
+            {
+                result = new SumCDMElectricityConsumptionProvider(connString);
+            }            
             else if (type == DataItemProviderType.RealtimePower)
             {
                 result = new RealtimePowerProvider(connString);
@@ -42,7 +63,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
             {
                 result = new RealtimeCoalConsumptionProvider(connString);
             }
-            else if(type == DataItemProviderType.MaterialConsumption)
+            else if (type == DataItemProviderType.MaterialConsumption)
             {
                 result = new MaterialConsumptionProvider(connString);
             }

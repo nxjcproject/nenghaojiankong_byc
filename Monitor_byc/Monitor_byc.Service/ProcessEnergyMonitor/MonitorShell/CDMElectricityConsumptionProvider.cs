@@ -23,22 +23,29 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
 
             string sqlSource = @"select * from (SELECT A.OrganizationID,A.VariableId,A.CumulantClass,A.CumulantLastClass,A.CumulantDay,(A.CumulantDay+B.MonthValue) AS CumulantMonth
                                 FROM RealtimeIncrementCumulant AS A,
-                                (select C.OrganizationID,D.VariableId,sum(D.TotalPeakValleyFlat) as MonthValue
+                                (select D.OrganizationID,D.VariableId,sum(D.TotalPeakValleyFlat) as MonthValue
 	                            from tz_Balance as C, balance_Energy as D 
 	                            where C.BalanceId=D.KeyId and TimeStamp>=CONVERT(varchar(8),GETDATE(),20)+'01'
-	                            group by C.OrganizationID, VariableId) AS B
+	                            group by D.OrganizationID, VariableId) AS B
                                 WHERE A.VariableId=B.VariableId and A.OrganizationID=B.OrganizationID) AS E
                                 where E.OrganizationID=@organizationId";
-            StringBuilder sqlSourceBase = new StringBuilder(sqlSource);
-            IList<SqlParameter> sourceparameters = new List<SqlParameter>();
-            sourceparameters.Add(new SqlParameter("@organizationId", organizationId));
-            ParametersHelper.AddParamsCondition(sqlSourceBase, sourceparameters, variableIds);
-            DataTable sourceDt = _nxjcFactory.Query(sqlSourceBase.ToString(), sourceparameters.ToArray());
+
+            //cdy修改开始
+
+            //StringBuilder sqlSourceBase = new StringBuilder(sqlSource);
+            //IList<SqlParameter> sourceparameters = new List<SqlParameter>();
+            //sourceparameters.Add(new SqlParameter("@organizationId", organizationId));
+            //ParametersHelper.AddParamsCondition(sqlSourceBase, sourceparameters, variableIds);
+            //DataTable sourceDt = _nxjcFactory.Query(sqlSourceBase.ToString(), sourceparameters.ToArray());
+            SqlParameter parameter = new SqlParameter("organizationId",organizationId);
+            DataTable sourceDt = _nxjcFactory.Query(sqlSource, parameter);
+            //cdy修改结束
 
             string sqlTemplate = @"select * from (SELECT A.OrganizationID,B.VariableID,B.ValueFormula
                                 FROM system_Organization AS A,balance_Energy_Template AS B
                                 WHERE A.Type=B.ProductionLineType
                                 AND B.ValueType='ElectricityConsumption'
+                                OR B.ValueType='CoalConsumption'
                                 AND B.Enabled='True') as C 
                                 where C.OrganizationID=@organizationId";
             StringBuilder sqlTemplateBase = new StringBuilder(sqlTemplate);

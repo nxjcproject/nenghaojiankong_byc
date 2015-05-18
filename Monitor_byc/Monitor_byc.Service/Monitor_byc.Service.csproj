@@ -73,6 +73,10 @@
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeElectricityQuantityProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePowerProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePulverizedCoalInputProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\SumCDMElectricityConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\SumCDMElectricityQuantityProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\SumProcessCDMElectricityConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\SumProcessCDMElectricityQuantityProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MultiMonitorShell.cs" />
     <Compile Include="ProcessEnergyMonitor\OrganizationHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\ProcessEnergyMonitorService.cs" />
