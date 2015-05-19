@@ -365,7 +365,7 @@
                 <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>Day" class="mchart"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>SumMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf_clinker01>clinkerBurning_ElectricityConsumption>Month" class="mchart"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 643px; left: 424px;">
