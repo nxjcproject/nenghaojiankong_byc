@@ -20,7 +20,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
         {
             IList<DataItem> results = new List<DataItem>();
 
-            string sqlSource = @"SELECT D.OrganizationID,C.VariableId,C.CumulantClass,C.CumulantLastClass,C.CumulantDay,SUM(C.CumulantDay+D.TotalPeakValleyFlat) AS CumulantMonth
+            string sqlSource = @"SELECT D.OrganizationID,C.VariableId,SUM(C.CumulantClass) AS CumulantClass,SUM(C.CumulantLastClass) AS CumulantLastClass,SUM(C.CumulantDay) AS CumulantDay,SUM(C.CumulantDay+D.TotalPeakValleyFlat) AS CumulantMonth
                                     FROM RealtimeIncrementCumulant AS C,
                                     (select A.OrganizationID,B.VariableId,SUM(B.TotalPeakValleyFlat) as TotalPeakValleyFlat
                                     from tz_Balance as A,balance_Energy as B
@@ -30,7 +30,7 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
                                     WHERE C.VariableId=D.VariableId 
                                     AND (C.VariableId='cement_CementOutput' OR C.VariableId='clinker_ClinkerOutput' OR C.VariableId='cementmill_ElectricityQuantity'
                                     OR C.VariableId='clinker_ElectricityQuantity' OR C.VariableId='clinker_PulverizedCoalInput')
-                                    GROUP BY D.OrganizationID,C.VariableId,C.CumulantClass,C.CumulantLastClass,C.CumulantDay";
+                                    GROUP BY D.OrganizationID,C.VariableId";
             DataTable sourceDt = _nxjcFactory.Query(sqlSource);
             string m_OrganizationId = sourceDt.Rows[0]["OrganizationID"].ToString().Trim();
             string sqlTemplate = @"SELECT A.VariableId,A.ValueFormula 
