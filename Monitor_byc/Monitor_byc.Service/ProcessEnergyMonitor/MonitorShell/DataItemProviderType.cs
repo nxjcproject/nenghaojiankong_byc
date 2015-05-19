@@ -87,7 +87,11 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
         /// <summary>
         /// 物料消耗
         /// </summary>
-        MaterialConsumption
+        MaterialConsumption,
+        /// <summary>
+        /// DCS能耗对照表电流
+        /// </summary>
+        Current
 
 
 

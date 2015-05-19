@@ -67,6 +67,10 @@ namespace Monitor_byc.Service.ProcessEnergyMonitor.MonitorShell
             {
                 result = new MaterialConsumptionProvider(connString);
             }
+            else if (type == DataItemProviderType.Current)
+            {
+                result = new RealtimeCurrentProvider();
+            }
             else
             {
                 result = new NullProvider();

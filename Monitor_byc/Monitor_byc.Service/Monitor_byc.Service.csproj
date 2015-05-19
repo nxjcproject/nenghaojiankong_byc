@@ -69,6 +69,7 @@
     <Compile Include="ProcessEnergyMonitor\MonitorShell\NullProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\ParametersHelper.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeCoalConsumptionProvider.cs" />
+    <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeCurrentProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeElectricityConsumptionProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimeElectricityQuantityProvider.cs" />
     <Compile Include="ProcessEnergyMonitor\MonitorShell\RealtimePowerProvider.cs" />

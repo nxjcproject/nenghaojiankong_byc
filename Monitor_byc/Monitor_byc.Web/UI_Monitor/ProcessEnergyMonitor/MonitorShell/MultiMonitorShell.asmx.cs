@@ -24,20 +24,6 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
         {
             IList<DataItem> dataItems = new List<DataItem>();
 
-            string dcsConn = ConnectionStringFactory.GetDCSConnectionString(organizationId);
-
-            if (organizationId.Split('_').Count() == 5)
-            {
-                #region 获得dcs实时数据
-                ProcessEnergyMonitorService monitorService = new ProcessEnergyMonitorService(dcsConn);
-                IEnumerable<DataItem> monitorItems = monitorService.GetRealtimeDatas(organizationId, sceneName);
-                foreach (var item in monitorItems)
-                {
-                    dataItems.Add(item);
-                }
-                #endregion
-            }
-
             string[] iditems = ids.Split(',');
             int count = iditems.Count();
 
@@ -132,6 +118,16 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
                             idDictionary[key].Add(itemArry[1]);
                         }
                     }
+                    else if (itemArry[2] == "Current")
+                    {
+                        string providerType = "Current";
+                        string key = itemArry[0] + "," + providerType;
+
+                        if (!idDictionary.Keys.Contains(key))
+                        {
+                            idDictionary.Add(key, new List<string>());
+                        }
+                    }
                     else
                     {
                         string providerType = "Realtime" + itemArry[2];
@@ -164,17 +160,6 @@ namespace Monitor_byc.Web.UI_Monitor.ProcessEnergyMonitor.MonitorShell
                     }
                 }
             }
-            
-
-
-            //if (organizationId != factoryLevelOrganizaiontId)
-            //{
-            //    GetProductionLineRealTimeData(organizationId, factoryLevelOrganizaiontId, sceneName, dataItems);
-            //}
-            //else
-            //{
-            //    GetCompanyRealTimeData(organizationId, dataItems);
-            //}
 
             SceneMonitor result = new SceneMonitor();
             result.Name = sceneName;
