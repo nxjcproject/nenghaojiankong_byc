@@ -166,6 +166,11 @@ function SetDisplayPageButton() {
     if (BrowserName != "IE") {
         if (OrganizationType == "熟料") {
             var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px;"></td>');
+            $('#DisplayPageButtons').append('<td id= "DisplayButton02Td" style = "width:125px;"></td>');
+            $('#DisplayButton01Td').append(m_DisplayButton01);
+            $('#DisplayButton02Td').append(m_DisplayButton02);
             m_DisplayButton01.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
@@ -173,7 +178,6 @@ function SetDisplayPageButton() {
                 width:120,
                 height:22
             });
-            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton02.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
@@ -181,27 +185,29 @@ function SetDisplayPageButton() {
                 width:120,
                 height:22
             });
-            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px;"></td>');
-            $('#DisplayPageButtons').append('<td id= "DisplayButton02Td" style = "width:125px;"></td>');
-            $('#DisplayButton01Td').append(m_DisplayButton01);
-            $('#DisplayButton02Td').append(m_DisplayButton02);
 
         }
         else {
             var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;"></td>');
+            $('#DisplayButtonTd').append(m_DisplayButton);
             m_DisplayButton.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
                 width:120,
                 height:22
             });
-            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;"></td>');
-            $('#DisplayButtonTd').append(m_DisplayButton);
+
         }
     }
     else {
         if (OrganizationType == "熟料") {
             var m_DisplayButton01 = $('<a href="' + OrganizationId + '_sheng.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButton02Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayButton01Td').append(m_DisplayButton01);
+            $('#DisplayButton02Td').append(m_DisplayButton02);
             m_DisplayButton01.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
@@ -209,7 +215,6 @@ function SetDisplayPageButton() {
                 width:120,
                 height:22
             });
-            var m_DisplayButton02 = $('<a href="' + OrganizationId + '_shu.aspx?PageId=' + PageIdString + '" target="ProcessMontor"></a>');
             m_DisplayButton02.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
@@ -217,21 +222,17 @@ function SetDisplayPageButton() {
                 width:120,
                 height:22
             });   
-            $('#DisplayPageButtons').append('<td id = "DisplayButton01Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
-            $('#DisplayPageButtons').append('<td id = "DisplayButton02Td" style = "width:125px; margin:0px;padding:0px; overflow:hidden;"></td>');
-            $('#DisplayButton01Td').append(m_DisplayButton01);
-            $('#DisplayButton02Td').append(m_DisplayButton02);
         }
         else {
             var m_DisplayButton = $('<a href="' + OrganizationId + '.aspx?PageId=' + PageIdString + '" target="ProcessMontor" class="easyui-linkbutton">' + OrganizationName + '</a>');
+            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;margin:0px;padding:0px; overflow:hidden;"></td>');
+            $('#DisplayButtonTd').append(m_DisplayButton);
             m_DisplayButton.linkbutton({
                 iconCls: 'icon-search',
                 plain: false,
                 width:120,
                 height:22
-            });
-            $('#DisplayPageButtons').append('<td id = "DisplayButtonTd" style = "width:125px;margin:0px;padding:0px; overflow:hidden;"></td>');
-            $('#DisplayButtonTd').append(m_DisplayButton);       
+            });    
         }
     }
 }

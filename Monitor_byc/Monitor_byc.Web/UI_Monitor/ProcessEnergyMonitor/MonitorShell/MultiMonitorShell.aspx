@@ -36,7 +36,7 @@
                 <table style="margin-right: 15px;">
                     <tr>
                         <td style="width: 35px;">
-                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-chart_curve',toggle:false" style="height: 22px;"></a>
+                            <%--<a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-chart_curve',toggle:false" style="height: 22px;"></a>--%>
                         </td>
                         <td style="width: 35px;">
                             <a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-image',toggle:true" style="height: 22px;" onclick="SetAutoResize();"></a>
