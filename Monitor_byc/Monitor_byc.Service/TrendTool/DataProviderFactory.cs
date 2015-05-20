@@ -19,6 +19,7 @@ namespace Monitor_byc.Service.TrendTool
         {
             dataProviders.Add(new DCSDataProvider(connectionString));
             dataProviders.Add(new HistoryFormulaValueDataProvider(connectionString));
+            dataProviders.Add(new MaterialDataProvider(connectionString));
         }
 
         /// <summary>

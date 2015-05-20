@@ -40,6 +40,14 @@ namespace Monitor_byc.Service.TrendTool
                 FROM [{2}].[dbo].[HistoryFormulaValue]
                WHERE [vDate] > @startTime AND [vDate] <= @stopTime AND [OrganizationID] = @organizationId AND [VariableID] = @variableName
             GROUP BY DATEADD(MI,(DATEDIFF(MI,CONVERT(varchar(10),DATEADD(SS,1,[vDate]),120),DATEADD(SS,1,[vDate]))/{1})*{1},CONVERT(varchar(10),[vDate],120))
+            --ORDER BY DATEADD(MI,(DATEDIFF(MI,CONVERT(varchar(10),DATEADD(SS,1,[vDate]),120),DATEADD(SS,1,[vDate]))/{1})*{1},CONVERT(varchar(10),[vDate],120))
+UNION
+            SELECT DATEADD(MI,(DATEDIFF(MI,CONVERT(varchar(10),DATEADD(SS,1,[vDate]),120)  ,DATEADD(SS,1,[vDate]))/{1})*{1},CONVERT(varchar(10),[vDate],120)) AS [Time],
+                     SUM({0}) / COUNT(*) as [Average],
+                     COUNT(*) as [Count]
+                FROM [{2}].[dbo].[HistoryMainMachineFormulaValue]
+               WHERE [vDate] > @startTime AND [vDate] <= @stopTime AND [OrganizationID] = @organizationId AND [VariableID] = @variableName
+            GROUP BY DATEADD(MI,(DATEDIFF(MI,CONVERT(varchar(10),DATEADD(SS,1,[vDate]),120),DATEADD(SS,1,[vDate]))/{1})*{1},CONVERT(varchar(10),[vDate],120))
             ORDER BY DATEADD(MI,(DATEDIFF(MI,CONVERT(varchar(10),DATEADD(SS,1,[vDate]),120),DATEADD(SS,1,[vDate]))/{1})*{1},CONVERT(varchar(10),[vDate],120))";
 
         // 构造函数
@@ -80,7 +88,7 @@ namespace Monitor_byc.Service.TrendTool
             
             // 获取变量类型对应的列名
             string columnName = GetColumnNameByType(vp.Type);
-
+            
             using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
                 SqlCommand command = connection.CreateCommand();
@@ -111,10 +119,14 @@ namespace Monitor_byc.Service.TrendTool
             {
                 case "ElectricityQuantity":
                     return "[FormulaValue]";
-                case "CoalConsumption":
-                    return "[CoalDustConsumption]";
+                case "CoalConsumption":                 
+                    //return "[CoalDustConsumption]";
+                    //如果为煤耗需判断分母为零的情况
+                    return "(case when [DenominatorValue]=0 then 0 else [FormulaValue]/[CoalDustConsumption] end)";
                 case "ElectricityConsumption":
-                    return "([FormulaValue]/[DenominatorValue])";
+                    //return "([FormulaValue]/[DenominatorValue])";
+                    //如果为电耗需判断分母为零的情况
+                    return "(case when [DenominatorValue]=0 then 0 else [FormulaValue]/[DenominatorValue] end)";
                 default:
                     return "[" + type + "]";
             }

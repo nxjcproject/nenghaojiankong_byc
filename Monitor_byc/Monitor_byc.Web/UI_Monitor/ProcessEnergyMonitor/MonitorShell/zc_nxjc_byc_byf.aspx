@@ -370,52 +370,52 @@
         </table>
         <table class="mytable" style="position: absolute; top: 643px; left: 424px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinker_ElectricityConsumption>SumMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinker_ElectricityConsumption>SumMonth" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinker_CoalConsumption>SumMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinker_CoalConsumption>SumMonth" ></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 644px; left: 496px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>SumMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementmill_ElectricityConsumption>SumMonth" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementmill_CoalConsumption>SumMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementmill_CoalConsumption>SumMonth" ></span></td>
             </tr>
         </table>
         <%--工序电耗（所有产线的该工序电量之和除以所有产线该工序产量之和） --%>
         <table class="mytable" style="position: absolute; top: 617px; left: 88px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessClass"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessClass"></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessClass" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessClass" ></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 161px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessDay" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessDay" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessDay" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessDay"></span></td>
             </tr>
         </table>
         <table class="mytable" style="position: absolute; top: 616px; left: 233px;">
             <tr>
-                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>rawMaterialsPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>clinkerPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
             </tr>
             <tr>
-                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessMonth" class="mchart"></span></td>
+                <td><span id="zc_nxjc_byc_byf>cementPreparation_ElectricityConsumption>SumProcessMonth" ></span></td>
             </tr>
         </table>
     </div>
